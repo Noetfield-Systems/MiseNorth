@@ -666,3 +666,24 @@
  .mn-site .mn-price-value-actions{gap:20px}
  .mn-site .mn-scan-bottom{padding:60px 0 80px}
 }
+
+
+/* Compact, progressive merchant inquiry: details remain optional. */
+.mn-site .mn-sales-form{display:grid;gap:15px}
+.mn-site .mn-sales-form h3{font-size:24px;line-height:1.25}
+.mn-site .mn-sales-form>p{margin-bottom:4px}
+.mn-site .mn-sales-form label{display:grid;gap:8px;font-size:11px;font-weight:800;color:#49644f}
+.mn-site .mn-sales-form input,.mn-site .mn-sales-form textarea,.mn-site .mn-sales-form select{width:100%;background:#fbfdfa;border:1px solid #cadccb;color:#254432;border-radius:9px;padding:13px 12px;font-size:13px;outline:none;min-height:43px}
+.mn-site .mn-sales-form input:focus,.mn-site .mn-sales-form textarea:focus,.mn-site .mn-sales-form select:focus{border-color:#5a975c;box-shadow:0 0 0 3px #8dc48b3b}
+.mn-site .mn-sales-form input::placeholder,.mn-site .mn-sales-form textarea::placeholder{color:#9aab9b}
+.mn-site .mn-sales-form .mn-sales-optional{border-top:1px solid #e8eee5;border-bottom:1px solid #e8eee5;padding:12px 0}
+.mn-site .mn-sales-form .mn-sales-optional summary{display:flex;align-items:center;justify-content:space-between;list-style:none;cursor:pointer;font-size:11px;color:#668267;font-weight:800}
+.mn-site .mn-sales-form .mn-sales-optional summary::-webkit-details-marker{display:none}
+.mn-site .mn-sales-form .mn-sales-optional[open] summary{margin-bottom:14px}
+.mn-site .mn-sales-form .mn-sales-optional summary span{font-size:17px}
+.mn-site .mn-sales-form .mn-sales-optional[open] summary span{transform:rotate(45deg)}
+.mn-site .mn-sales-form .mn-trap{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+.mn-site .mn-sales-form>button{margin-top:1px;border-radius:10px;min-height:52px}
+.mn-site .mn-sales-form>small{font-size:10px;line-height:1.7;color:#879a87}
+.operator-shell .operator-site{font-size:12px;color:#607c65;line-height:1.6;overflow-wrap:anywhere}
+.operator-shell .operator-site>a{text-decoration:underline;text-underline-offset:3px;color:#206b45}
