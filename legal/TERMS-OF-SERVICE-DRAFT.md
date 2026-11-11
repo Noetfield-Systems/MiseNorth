@@ -43,7 +43,7 @@ Restaurant owners must provide accurate business details, verify their email add
 
 The initial founding-partner pricing displayed by MiseNorth is a **commercial hypothesis for discovery**, not a binding offer or live charge until a written order form or approved Checkout flow confirms the plan, price, billing period, tax treatment and terms.
 
-The current hypothesis is C$149 one-time setup and C$49 per restaurant location per month, month-to-month, with no percentage commission on restaurant food sales. Prices may be changed only under approved contract terms.
+The current hypothesis is C$149 one-time setup and C$99 per restaurant location per month, month-to-month, with no percentage commission on restaurant food sales. Prices may be changed only under approved contract terms.
 
 MiseNorth subscription charges are separate from restaurant guest food payments. Guest food payments, refunds, disputes and restaurant settlements are not processed by the current guest request flow.
 

@@ -2,6 +2,7 @@ import {z} from "zod";
 import {body,fail,json,sameOrigin} from "../../../lib/api";
 import {enforceRateLimit} from "../../../lib/rate-limit";
 import {readAudit,saveInquiry} from "../../../lib/grader-store";
+import {alertNewGrowthInquiry} from "../../../lib/lead-notification";
 export const runtime="nodejs";
 const schema=z.object({
  auditId:z.string().uuid().nullable().optional(),
@@ -20,6 +21,7 @@ export async function POST(req:Request){
   if(data.website)return json({ok:true});
   if(data.auditId&&!(await readAudit(data.auditId)))return json({error:"Audit no longer available"},404);
   const id=await saveInquiry({auditId:data.auditId,name:data.name,email:data.email,restaurantName:data.restaurantName,message:data.message,intent:data.intent});
+  await alertNewGrowthInquiry({id,name:data.name,email:data.email,restaurantName:data.restaurantName,intent:data.intent,message:data.message});
   return json({ok:true,id,message:"Your request was received. We will contact you using the email provided."},201);
  }catch(error){return fail(error);}
 }
