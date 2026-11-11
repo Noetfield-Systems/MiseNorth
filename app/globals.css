@@ -726,3 +726,11 @@
 .mn-site .mn-local-steps b{color:#b45a3c}
 @media(max-width:850px){.mn-site .mn-local-hero-grid,.mn-site .mn-local-info-grid{grid-template-columns:1fr;gap:35px}.mn-site .mn-local-image{height:340px}}
 @media(max-width:550px){.mn-site .mn-local-hero{padding:65px 0}.mn-site .mn-local-hero h1{font-size:42px;letter-spacing:-2px}.mn-site .mn-local-image{height:265px;border-radius:85px 12px 12px 85px}.mn-site .mn-local-info{padding:65px 0}}
+
+
+/* Finishing details for logo alignment and consistent text rendering. */
+.mn-site .mn-logo-glyph{display:inline-flex;align-items:baseline;justify-content:center;gap:0;line-height:1}
+.mn-site .mn-logo-glyph span{font-size:.9em;line-height:1;margin-left:0}
+.mn-site .mn-sales-form .growth-inquiry-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mn-site .mn-final-form .growth-inquiry-success{background:#fff;color:#254b35}
+@media(max-width:490px){.mn-site .mn-sales-form .growth-inquiry-fields{grid-template-columns:1fr}}
