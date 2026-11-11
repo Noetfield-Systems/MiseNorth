@@ -2,7 +2,7 @@
 import {useCallback,useEffect,useState} from "react";
 import type {FormEvent} from "react";
 import Link from "next/link";
-type Item={id:string;created_at:string;name:string;email:string;restaurant_name:string;message:string;intent:string;status:string;operator_note:string|null;audited_hostname:string|null;audit_id:string|null};
+type Item={id:string;created_at:string;name:string;email:string;restaurant_name:string;message:string;intent:string;status:string;operator_note:string|null;restaurant_website:string;main_goal:string;source:string;audited_hostname:string|null;audit_id:string|null};
 type Counts={total:number;new_count:number;restaurants:number;partners:number;investors:number};
 export default function OperatorConsole(){
  const [auth,setAuth]=useState<"loading"|"locked"|"ready">("loading");
@@ -37,7 +37,7 @@ export default function OperatorConsole(){
  {error&&<p className="error" role="alert">{error}</p>}
  <div className="operator-list">{items.length===0?<div className="operator-empty">No inquiries on this page. Share the Grader to attract restaurant prospects.</div>:items.map(i=><article className="operator-item" key={i.id}>
   <div className="operator-item-top"><div><small>{new Date(i.created_at).toLocaleString("en-CA")}</small><h2>{i.restaurant_name||i.name}</h2><p>{i.name} · <a href={"mailto:"+i.email}>{i.email}</a></p></div><b>{i.intent}</b></div>
-  {i.message&&<p className="operator-note-message">{i.message}</p>}
+  {i.restaurant_website&&<p className="operator-site">Restaurant website: <a href={i.restaurant_website} rel="noopener noreferrer" target="_blank">{i.restaurant_website} ↗</a></p>}{i.main_goal&&<p className="operator-site">Primary interest: <strong>{i.main_goal.replaceAll("_"," ")}</strong> · Source: {i.source||"unknown"}</p>}{i.message&&<p className="operator-note-message">{i.message}</p>}
   {i.audit_id&&<a className="text-link" href={"/grader/report/"+i.audit_id} target="_blank" rel="noopener noreferrer">Audit: {i.audited_hostname||"website"} ↗</a>}
   <div className="operator-editor"><label>Status<select value={edits[i.id]?.status||i.status} onChange={e=>setEdits(a=>({...a,[i.id]:{status:e.target.value,note:a[i.id]?.note||""}}))}>{["new","contacted","qualified","won","lost"].map(x=><option key={x} value={x}>{x}</option>)}</select></label><label className="operator-editor-note">Private follow-up note<textarea maxLength={3000} rows={2} value={edits[i.id]?.note||""} onChange={e=>setEdits(a=>({...a,[i.id]:{status:a[i.id]?.status||i.status,note:e.target.value}}))}/></label><button className="btn" disabled={busy} onClick={()=>save(i)}>Save</button><button className="btn ghost" disabled={busy} onClick={()=>remove(i)}>Delete</button></div>
  </article>)}</div>
