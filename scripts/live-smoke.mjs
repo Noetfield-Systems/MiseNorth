@@ -17,7 +17,7 @@ for(const path of paths){
  if(path==="/api/health"){
   try{const h=JSON.parse(text);if(h.status!=="ok"||h.database!=="connected")throw Error("DB not healthy");}
   catch(error){failed++;console.error("FAIL health",error);continue;}
- }else if(path==="/"&&!text.includes("Your restaurant.")){failed++;console.error("FAIL landing headline missing");continue;}
+ }else if(path==="/"&&!text.includes("They found")){failed++;console.error("FAIL landing headline missing");continue;}
  else if(path==="/grader"&&!text.includes("restaurant website")){failed++;console.error("FAIL grader copy missing");continue;}
  console.log("PASS",path,response.status,text.length,"bytes");
 }
