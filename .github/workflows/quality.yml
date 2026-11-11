@@ -47,6 +47,9 @@ jobs:
       MISENORTH_SEED_DEMOS: 'true'
       NEXT_PUBLIC_APP_URL: http://127.0.0.1:3000
       PORT: '3000'
+      MISENORTH_OPERATOR_PASSWORD_HASH: 810ba358b8279990d9d365342206e6d986dcbad6635ac02ad8fd35a0e0d60b39
+      MISENORTH_OPERATOR_SESSION_SECRET: ci-only-local-session-signing-secret-never-for-production
+      MISENORTH_TEST_OPERATOR_KEY: ci-operator-key-strong-2026
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -70,6 +73,8 @@ jobs:
           exit 1
       - name: Run ten-tenant agent E2E
         run: npm run test:e2e
+      - name: Verify operator intake and follow-up
+        run: node tests/operator.e2e.mjs
       - name: Upload E2E evidence
         if: always()
         uses: actions/upload-artifact@v4
