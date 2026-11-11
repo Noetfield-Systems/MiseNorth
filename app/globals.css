@@ -687,3 +687,21 @@
 .mn-site .mn-sales-form>small{font-size:10px;line-height:1.7;color:#879a87}
 .operator-shell .operator-site{font-size:12px;color:#607c65;line-height:1.6;overflow-wrap:anywhere}
 .operator-shell .operator-site>a{text-decoration:underline;text-underline-offset:3px;color:#206b45}
+
+
+/* Audited result → concept → merchant inquiry is the actual conversion path. */
+.mn-site .mn-report-next{display:flex;justify-content:space-between;align-items:center;gap:22px;border-top:1px solid #ffffff34;padding-top:25px;margin-top:28px}
+.mn-site .mn-report-next>div{display:grid;gap:7px}
+.mn-site .mn-report-next strong{font-size:16px;color:#fff}
+.mn-site .mn-report-next span{font-size:12px;color:#bad3bb}
+.mn-site .mn-report-next .mn-button{white-space:nowrap}
+.mn-site .mn-concept-photo{background:#30513f}
+.mn-site .mn-concept-photo>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mn-site .mn-concept-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,#10241cc7)}
+.mn-site .mn-concept-photo>span{position:absolute;z-index:2;bottom:22px;right:24px;color:white;font-size:10px;letter-spacing:1.3px;font-weight:850}
+.mn-site .growth-report-grade{background:#e6f4df}
+.mn-site .growth-report-hero{background:linear-gradient(135deg,#153c2b,#0e2a1e)}
+.mn-site .growth-report-cta{background:#e9f2e2}
+.mn-site .growth-concept-banner{background:linear-gradient(130deg,#123728,#234e37)}
+.mn-site .growth-concept-browser{border-color:#d7e2d1}
+@media(max-width:720px){.mn-site .mn-report-next{display:grid;gap:15px}.mn-site .mn-report-next .mn-button{width:100%}}

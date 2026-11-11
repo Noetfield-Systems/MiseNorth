@@ -14,11 +14,15 @@ const login=await call("/api/operator/session","POST",{password:process.env.MISE
 assert.equal(login.status,200);
 assert.ok(login.cookie?.startsWith("misenorth_operator="));
 const email="test-"+Date.now()+"@example.test";
-const created=await call("/api/growth-inquiries","POST",{name:"Synthetic CI User",email,restaurantName:"MiseNorth E2E Fixture",message:"Isolated CI test",intent:"restaurant",website:""});
+const created=await call("/api/growth-inquiries","POST",{name:"Synthetic CI User",email,restaurantName:"MiseNorth E2E Fixture",message:"Isolated CI test",intent:"restaurant",restaurantWebsite:"example.com",goal:"website",source:"pricing",website:""});
 assert.equal(created.status,201,JSON.stringify(created.body));
 const inbox=await call("/api/operator/inquiries","GET",undefined,login.cookie);
 assert.equal(inbox.status,200);
-assert.ok(inbox.body.items.some(x=>x.id===created.body.id));
+const saved=inbox.body.items.find(x=>x.id===created.body.id);
+assert.ok(saved);
+assert.equal(saved.restaurant_website,"https://example.com/");
+assert.equal(saved.main_goal,"website");
+assert.equal(saved.source,"pricing");
 const updated=await call("/api/operator/inquiries/"+created.body.id,"PATCH",{status:"qualified",note:"Reviewed during isolated CI"},login.cookie);
 assert.equal(updated.status,200);
 assert.equal(updated.body.item.status,"qualified");
