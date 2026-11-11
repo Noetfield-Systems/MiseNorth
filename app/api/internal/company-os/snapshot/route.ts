@@ -1,6 +1,7 @@
 import {timingSafeEqual} from "node:crypto";
 import {query} from "../../../../../lib/db";
 import {billingConfiguration} from "../../../../../lib/stripe-client";
+import {miseNorthCompanyOs} from "../../../../../lib/misenorth-company-os";
 import {json,fail} from "../../../../../lib/api";
 
 export const runtime="nodejs";
@@ -47,11 +48,11 @@ export async function GET(req:Request){
    query<any>(
     `SELECT count(*) FILTER (WHERE subscription_status='active' AND entitlement_status='active'
        AND latest_invoice_status='paid' AND current_period_end>now()
-       AND currency='CAD' AND billing_interval='month')::int AS active_paid_locations,
+       AND a.currency='CAD' AND billing_interval='month')::int AS active_paid_locations,
       COALESCE(sum(unit_amount_cents*quantity) FILTER (WHERE subscription_status='active' AND entitlement_status='active'
        AND latest_invoice_status='paid' AND current_period_end>now()
-       AND currency='CAD' AND billing_interval='month'),0)::bigint AS mrr_cents
-     FROM misenorth_billing_accounts`,
+       AND a.currency='CAD' AND billing_interval='month'),0)::bigint AS mrr_cents
+     FROM misenorth_billing_accounts a JOIN restaurants r ON r.id=a.restaurant_id AND r.is_demo=false`,
     []
    ),
    query<any>(
@@ -72,6 +73,7 @@ export async function GET(req:Request){
    )
   ]);
   const billingConfig=billingConfiguration();
+  const specialized=await miseNorthCompanyOs();
   const t=tenant.rows[0]||{},o=orders.rows[0]||{},b=reservations.rows[0]||{},g=guests.rows[0]||{};
   const pay=billing.rows[0]||{},cash=collections.rows[0]||{},setup=onboarding.rows[0]||{},sup=support.rows[0]||{};
   return json({
@@ -81,6 +83,8 @@ export async function GET(req:Request){
    product_id:"noetfield.misenorth",
    generated_at:new Date().toISOString(),
    data_scope:"aggregate_only_no_guest_or_restaurant_identifiers",
+   north_star:specialized.northStar,
+   operating_model:{schema_version:specialized.schemaVersion,departments:specialized.departments,work_packets:specialized.packets,leading_indicators:specialized.leading,authority:specialized.authority},
    commercial:{
     restaurant_workspaces:Number(t.restaurant_workspaces||0),
     order_requests:Number(o.order_requests||0),

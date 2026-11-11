@@ -1,0 +1,33 @@
+name: MiseNorth Public Restaurant Research
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  public-website-research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Audit three public restaurant websites and verify reports
+        id: research
+        continue-on-error: true
+        run: node scripts/three-real-business-audits.mjs
+      - name: Preserve real verification evidence including failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: misenorth-three-real-business-research
+          path: public-research-audits.json
+          if-no-files-found: warn
+      - name: Report actual coverage
+        if: always()
+        run: |
+          if [ -f public-research-audits.json ]; then
+            node -e "let r=require('./public-research-audits.json'); console.log('Verified public reports: '+r.verifiedCount+'/3; research only, not paid customers')"
+          else
+            echo "No report created — public verification incomplete"
+          fi

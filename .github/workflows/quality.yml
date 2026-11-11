@@ -75,6 +75,8 @@ jobs:
         run: npm run test:e2e
       - name: Verify operator intake and follow-up
         run: node tests/operator.e2e.mjs
+      - name: Verify three independent restaurant research workflows and collaborator onboarding
+        run: node tests/three-business-stories.e2e.mjs
       - name: Upload E2E evidence
         if: always()
         uses: actions/upload-artifact@v4

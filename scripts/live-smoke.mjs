@@ -1,6 +1,6 @@
 /** Production HTTP smoke for the public MiseNorth acquisition and guest surfaces. */
 const base=(process.env.BASE_URL||"https://misenorth-growth-production.up.railway.app").replace(/\/$/,"");
-const paths=["/","/grader","/pricing","/demo","/partners","/investors","/restaurants/vancouver","/operator","/api/public/launch-status","/signup","/api/health","/robots.txt","/sitemap.xml"];
+const paths=["/","/grader","/pricing","/demo","/partners","/investors","/restaurants/vancouver","/operator","/work-with-us","/api/agents/manifest","/api/public/launch-status","/signup","/api/health","/robots.txt","/sitemap.xml"];
 let failed=0;
 for(const path of paths){
  let response,reason="";
