@@ -1,2 +1,2 @@
 import type {MetadataRoute} from "next";
-export default function manifest():MetadataRoute.Manifest{return {name:"MiseNorth Restaurant Platform",short_name:"MiseNorth",description:"Restaurant ordering, reservations and guest management.",start_url:"/",display:"standalone",background_color:"#f5f6f2",theme_color:"#162b27",icons:[{src:"/icon.svg",sizes:"any",type:"image/svg+xml"}]};}
+export default function manifest():MetadataRoute.Manifest{return {name:"MiseNorth — Restaurant Growth OS",short_name:"MiseNorth",description:"Restaurant websites, digital menus, direct requests and customer relationships.",start_url:"/",display:"standalone",background_color:"#f9faf5",theme_color:"#123829",icons:[{src:"/icon.svg",sizes:"any",type:"image/svg+xml"}]};}

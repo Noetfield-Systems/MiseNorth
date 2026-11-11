@@ -26,7 +26,7 @@ export function billingConfiguration(){
  const liveApproved=process.env.MISENORTH_BILLING_LIVE_APPROVED==="true";
  const taxReviewed=process.env.MISENORTH_TAX_REVIEWED==="true";
  const taxConfigured=process.env.MISENORTH_TAX_CONFIGURED==="true";
- const expectedMonthlyCents=Number(process.env.MISENORTH_FOUNDING_MONTHLY_CENTS||4900);
+ const expectedMonthlyCents=Number(process.env.MISENORTH_FOUNDING_MONTHLY_CENTS||9900);
  const expectedSetupCents=Number(process.env.MISENORTH_FOUNDING_SETUP_CENTS||14900);
  const recurringPriceReady=Boolean(recurringPrice)&&Number.isInteger(expectedMonthlyCents)&&expectedMonthlyCents>0;
  const setupPriceReady=Boolean(setupPrice)&&Number.isInteger(expectedSetupCents)&&expectedSetupCents>=0;
