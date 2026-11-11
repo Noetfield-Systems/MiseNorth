@@ -3,7 +3,7 @@ import {query} from "./db";
 import type {WebsiteReport} from "./grader-core.mjs";
 
 let initialized:Promise<void>|undefined;
-async function schema(){
+export async function ensureGrowthSchema(){
  if(!initialized)initialized=(async()=>{
   await query(`CREATE TABLE IF NOT EXISTS misenorth_growth_audits(
    id uuid PRIMARY KEY,
@@ -25,12 +25,13 @@ async function schema(){
    status text NOT NULL DEFAULT 'new',
    created_at timestamptz NOT NULL DEFAULT now()
   )`);
+  await query("ALTER TABLE misenorth_growth_inquiries ADD COLUMN IF NOT EXISTS operator_note text NOT NULL DEFAULT ''");
   await query("CREATE INDEX IF NOT EXISTS growth_inquiries_created_idx ON misenorth_growth_inquiries(created_at DESC)");
  })().catch(error=>{initialized=undefined;throw error;});
  await initialized;
 }
 export async function saveAudit(report:WebsiteReport){
- await schema();
+ await ensureGrowthSchema();
  const id=randomUUID();
  await query("INSERT INTO misenorth_growth_audits(id,normalized_url,hostname,report) VALUES($1,$2,$3,$4::jsonb)",[id,report.auditedUrl,report.hostname,JSON.stringify(report)]);
  return id;
