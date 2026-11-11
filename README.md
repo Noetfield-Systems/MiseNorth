@@ -24,7 +24,7 @@ npm run dev
 For a database-backed local runtime, configure `DATABASE_URL` (see `.env.example`). New tenants cannot complete email verification without the verified sender credentials. `/api/health` checks the database.
 
 ## Product truth
-- Free grader uses actual Google PageSpeed/Lighthouse metrics. Missing measurements remain unknown. Reports are stored and shareable; website audit does not require email.
+- Free grader uses actual PageSpeed/Lighthouse metrics when available, or a direct public HTML audit with pinned public DNS resolution as a limited fallback. Missing measurements remain unknown. Reports are stored and shareable; website audit does not require email.
 - Ten demo restaurants are *synthetic*, not paying customers or growth results.
 - Guest orders are *unpaid requests*, not processed food payments; requested value is not collected revenue.
 - Restaurant subscription Stripe integration exists as source code but is **not live** until a real Stripe Product, recurring CAD Price, setup Price, webhook signing secret, API key and the commercial/tax settings are commissioned.
