@@ -30,7 +30,7 @@ export default function Home(){
  <div className="mn-topbar"><div className="container mn-topbar-inner"><span><i/> BUILT FOR INDEPENDENT CANADIAN RESTAURANTS</span><Link href="/grader">Free restaurant website check <span aria-hidden="true">↗</span></Link></div></div>
  <header className="mn-header"><div className="container mn-head-inner">
   <Link href="/" className="mn-logo" aria-label="MiseNorth homepage"><span className="mn-logo-glyph">m<span>·</span></span>mise<span>north</span></Link>
-  <nav className="mn-nav" aria-label="Main navigation"><Link href="#why">Why it matters</Link><Link href="#platform">See the platform</Link><Link href="#pricing">Pricing</Link><Link href="#faq">FAQ</Link></nav>
+  <nav className="mn-nav" aria-label="Main navigation"><Link href="#why">Why it matters</Link><Link href="#platform">See the platform</Link><Link href="#pricing">Pricing</Link><Link href="#faq">FAQ</Link><Link href="/work-with-us">Work with us</Link></nav>
   <div className="mn-nav-actions"><Link href="/login" className="mn-nav-login">Log in</Link><Link href="#get-started" className="mn-button mn-nav-button">See it for my restaurant <span>↗</span></Link></div>
  </div></header>
  <section className="mn-hero">
