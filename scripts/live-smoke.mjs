@@ -27,7 +27,19 @@ else console.log("Public pages and PostgreSQL health are responding.");
 try{
  const response=await fetch(base+"/api/grader",{method:"POST",headers:{"Content-Type":"application/json",Origin:base,"user-agent":"MiseNorth-production-smoke/1.0"},body:JSON.stringify({website:"https://www.example.com"}),signal:AbortSignal.timeout(35000)});
  const body=await response.json();
- if(response.status===200&&body.ok&&typeof body.report?.source==="string"&&Number.isFinite(body.report.score)&&body.id)console.log("GRADER PASS",body.id,body.report.score,body.report.source,body.report.coverage);
+ if(response.status===200&&body.ok&&typeof body.report?.source==="string"&&Number.isFinite(body.report.score)&&body.id){
+  console.log("GRADER PASS",body.id,body.report.score,body.report.source,body.report.coverage);
+  const [report,preview,api]=await Promise.all([
+   fetch(base+"/grader/report/"+body.id,{signal:AbortSignal.timeout(15000)}),
+   fetch(base+"/grader/report/"+body.id+"/preview",{signal:AbortSignal.timeout(15000)}),
+   fetch(base+"/api/grader/report/"+body.id,{signal:AbortSignal.timeout(15000)})
+  ]);
+  const [reportHtml,previewHtml,reportJson]=await Promise.all([report.text(),preview.text(),api.json()]);
+  if(!report.ok||!preview.ok||!api.ok||!reportHtml.includes("What the measurements say")||!previewHtml.includes("WEBSITE IMPROVEMENT CONCEPT")||reportJson.report?.score!==body.report.score){
+   console.error("FAIL report or concept preview route",report.status,preview.status,api.status);
+   process.exitCode=1;
+  }else console.log("REPORT+PREVIEW PASS",report.status,preview.status,api.status);
+ }
  else if([422,429,503].includes(response.status)&&body.error)console.log("GRADER PROVIDER NOT AVAILABLE",response.status,body.code||body.error);
  else {console.error("GRADER unexpected response",response.status,JSON.stringify(body).slice(0,250));process.exitCode=1;}
 }catch(error){console.warn("GRADER probe interrupted; check provider and network",String(error?.message||error));}
