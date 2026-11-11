@@ -23,3 +23,57 @@ jobs:
       - name: Live HTTP smoke (production)
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: node scripts/live-smoke.mjs
+
+  isolated-tenant-e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: misenorth_ci
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d misenorth_ci"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 15
+    env:
+      DATABASE_URL: postgres://postgres:postgres@127.0.0.1:5432/misenorth_ci
+      SESSION_SECRET: ci-only-long-random-session-secret-not-for-production
+      MISENORTH_SEED_DEMOS: 'true'
+      NEXT_PUBLIC_APP_URL: http://127.0.0.1:3000
+      PORT: '3000'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Build app
+        run: npm run build
+      - name: Start isolated service and verify health
+        run: |
+          npm run start > /tmp/misenorth-e2e.log 2>&1 &
+          for i in $(seq 1 50); do
+            if curl --fail --silent http://127.0.0.1:3000/api/health >/dev/null; then
+              echo "PostgreSQL-backed app healthy"
+              exit 0
+            fi
+            sleep 2
+          done
+          cat /tmp/misenorth-e2e.log
+          exit 1
+      - name: Run ten-tenant agent E2E
+        run: npm run test:e2e
+      - name: Upload E2E evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: misenorth-e2e-report
+          path: agent-pilot-report.json
+          if-no-files-found: ignore
