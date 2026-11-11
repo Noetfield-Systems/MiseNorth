@@ -1,33 +1,24 @@
 import Link from "next/link";
+import type {Metadata} from "next";
 import DemoLauncher from "./demo-launcher";
 import scenarios from "../../fixtures/demo-scenarios.json";
-
-export const metadata={
- title:"Vancouver restaurant pilot · MiseNorth",
- description:"Explore ten synthetic Vancouver restaurant customer workspaces operated by role-based test agents."
-};
-
-export default function DemoPage(){
- const sampleGuests=scenarios.reduce((sum,s)=>sum+s.guests.length,0);
- const sampleOrders=scenarios.reduce((sum,s)=>sum+s.orders.length,0);
- const neighbourhoods=new Set(scenarios.map(s=>s.area)).size;
- return <main className="demo-page">
-  <div className="container demo-nav"><Link href="/" className="brand"><span className="brand-mark">M</span>MiseNorth</Link><div><span className="tiny muted">Vancouver · British Columbia</span><Link href="/signup" className="btn small">Create a real restaurant account</Link></div></div>
-  <section className="container demo-intro">
-   <div className="eyebrow">Vancouver · Agent-operated product pilot</div>
-   <h1>Ten restaurant models.<br/><span>One connected service platform.</span></h1>
-   <p>Ten independent sample workspaces across Vancouver neighbourhoods. Each includes a fictional owner, menu, tables, guest history, kitchen activity and a booking flow matched to its restaurant type.</p>
-   <div className="demo-assurance"><b>10 SYNTHETIC PILOT CUSTOMERS</b><span>These are fictional restaurant accounts and role-based agent simulations, not real businesses, live customers, reviews, sales or market traction. No payment is taken and no campaign is sent. Every sample tenant is isolated from real merchant workspaces.</span></div>
-   <div className="demo-pilot-summary"><div><b>{scenarios.length}</b><span>restaurant workspaces</span></div><div><b>{sampleGuests}</b><span>sample guest profiles</span></div><div><b>{sampleOrders}</b><span>opening sample orders</span></div><div><b>{neighbourhoods}</b><span>Vancouver neighbourhoods</span></div></div>
-  </section>
-  <section className="container demo-grid">{scenarios.map((s,i)=><article className={"demo-card "+(["sage","blue","clay"][i%3])} key={s.slug}>
-   <div className="demo-card-top"><span className="demo-number">{String(i+1).padStart(2,"0")}</span><span className="demo-tag">SYNTHETIC PILOT</span></div>
-   <div className="eyebrow">{s.businessType} · {s.area}</div><h2>{s.name}</h2><p>{s.description}</p>
-   <div className="demo-focus">{s.focus}</div>
-   <div className="demo-proof"><span>✓ Independent tenant & owner agent</span><span>✓ {s.categories.length} menu categories · {s.tables.length} tables</span><span>✓ {s.guests.length} guest profiles · {s.orders.length} sample orders</span><span>{s.acceptingReservations?"✓ Reservation workflow included":"— Reservations intentionally disabled"}</span></div>
-   <div className="demo-card-foot"><span>Owner agent · {s.ownerName}</span><div className="demo-actions"><Link className="btn ghost small" href={"/r/"+s.slug} target="_blank">Guest storefront ↗</Link><DemoLauncher slug={s.slug}/></div></div>
-  </article>)}</section>
-  <section className="container demo-next"><div><div className="eyebrow">Agent testing protocol</div><h2>Guest request → owner inbox → kitchen or booking decision.</h2><p>Automated role-based agents validate each tenant's storefront, menu, unpaid order intake, legal order progression, guest CRM, reservation policy and cross-tenant access boundary.</p></div><Link href="/" className="btn secondary">Back to MiseNorth</Link></section>
-  <footer className="container footer"><span>© {new Date().getFullYear()} MiseNorth</span><span>Vancouver · synthetic pilot cohort · no real transactions</span></footer>
- </main>;
+export const metadata:Metadata={title:"See MiseNorth in Action — Restaurant Product Demos",description:"Explore working guest menus, table QR flows and the restaurant owner workspace with clearly labelled fictional restaurant examples.",alternates:{canonical:"/demo"}};
+const images=[
+ "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80",
+ "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80",
+ "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=900&q=80"
+];
+export default function Demo(){
+ const featured=scenarios.slice(0,3),more=scenarios.slice(3);
+ return <main className="growth-home mn-site mn-demo-page"><div className="mn-topbar"><div className="container mn-topbar-inner"><span><i/> TRY THE WORKING SOFTWARE</span><Link href="/grader">Free website audit ↗</Link></div></div>
+ <header className="mn-header"><div className="container mn-head-inner"><Link href="/" className="mn-logo"><span className="mn-logo-glyph">m<span>·</span></span>mise<span>north</span></Link><nav className="mn-nav"><Link href="/">Platform</Link><Link href="/pricing">Pricing</Link><Link href="/grader">Free audit</Link></nav><div className="mn-nav-actions"><Link href="/login" className="mn-nav-login">Log in</Link><Link href="/#get-started" className="mn-button mn-nav-button">Discuss my restaurant ↗</Link></div></div></header>
+ <section className="mn-demo-intro"><div className="container"><span className="mn-eyebrow"><span className="mn-eyebrow-dot"/> NO SLIDES. REAL WORKFLOWS.</span><h1>See it like your guests<br/><em>and your team would.</em></h1><p>Browse a restaurant website, open a menu, try the request flow and explore the private owner workspace. All demo restaurants and guests are <strong>fictional examples</strong>, not real clients or sales results.</p><div className="mn-demo-assurance">✓ Functional demos <span>·</span> ✓ No card required <span>·</span> ✓ No real food payments</div></div></section>
+ <section className="mn-demo-featured"><div className="container"><div className="mn-section-heading"><div><span className="mn-eyebrow">PICK A RESTAURANT YOU RECOGNIZE</span><h2>Three ways to<br/><em>experience MiseNorth.</em></h2></div><p>Each demo has its own menu, operating model and owner workspace. Start with the scenario closest to your restaurant.</p></div>
+ <div className="mn-demo-cards">{featured.map((s,i)=><article key={s.slug} className="mn-demo-tile">
+  <div className="mn-demo-image"><img src={images[i]} alt={s.businessType+" restaurant example"} loading="lazy"/><span>FICTIONAL WORKING DEMO</span></div>
+  <div className="mn-demo-card-body"><small>{s.businessType} · {s.area}</small><h3>{s.name}</h3><p>{s.description}</p><div className="mn-demo-actions"><Link href={"/r/"+s.slug} className="mn-button">Guest experience ↗</Link><DemoLauncher slug={s.slug}/></div></div>
+ </article>)}</div></div></section>
+ <section className="mn-demo-more"><div className="container"><div className="mn-section-heading"><div><span className="mn-eyebrow">EXPLORE MORE CONFIGURATIONS</span><h2>Different restaurants.<br/><em>Same simple journey.</em></h2></div><p>These fictional examples demonstrate tenant isolation and different menu and reservation settings; none is a paying customer.</p></div><div className="mn-demo-more-grid">{more.map(s=><article key={s.slug}><small>{s.area} · {s.businessType}</small><h3>{s.name}</h3><p>{s.focus}</p><div><Link href={"/r/"+s.slug}>Visit guest website ↗</Link><DemoLauncher slug={s.slug}/></div></article>)}</div></div></section>
+ <section className="mn-scan-bottom"><div className="container mn-scan-bottom-inner"><div><span className="mn-eyebrow">LIKE WHAT YOU SEE?</span><h2>See how it fits your restaurant.</h2><p>Tell us what you serve and how guests find you today. No payment commitment required.</p></div><Link href="/#get-started" className="mn-button">Request my restaurant setup ↗</Link></div></section>
+ <footer className="mn-footer"><div className="container mn-footer-bottom"><Link href="/">← MiseNorth homepage</Link><span>10 fictional workspaces · No verified client or revenue metrics</span></div></footer></main>;
 }
