@@ -20,3 +20,6 @@ jobs:
         run: npm run typecheck
       - name: Production build
         run: npm run build
+      - name: Live HTTP smoke (production)
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: node scripts/live-smoke.mjs
