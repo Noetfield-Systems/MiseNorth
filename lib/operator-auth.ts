@@ -1,10 +1,12 @@
 import {createHmac,createHash,randomBytes,timingSafeEqual} from "node:crypto";
 import {cookies} from "next/headers";
 const COOKIE="misenorth_operator";
-function secret(){const key=process.env.MISENORTH_OPERATOR_SECRET?.trim()||"";if(key.length<40)throw new Error("OPERATOR_NOT_CONFIGURED");return key;}
+function secret(){const key=process.env.MISENORTH_OPERATOR_SESSION_SECRET?.trim()||"";if(key.length<40)throw new Error("OPERATOR_NOT_CONFIGURED");return key;}
 function equal(a:string,b:string){const x=Buffer.from(a),y=Buffer.from(b);return x.length===y.length&&timingSafeEqual(x,y);}
 function sign(data:string){return createHmac("sha256",secret()).update("misenorth-operator-v1:"+data).digest("base64url");}
-export function validateOperatorKey(candidate:string){return equal(createHash("sha256").update(secret()).digest("hex"),createHash("sha256").update(candidate).digest("hex"));}
+export function validateOperatorKey(candidate:string){const expected=process.env.MISENORTH_OPERATOR_PASSWORD_HASH?.trim().toLowerCase()||"";
+ if(!/^[0-9a-f]{64}$/.test(expected))throw new Error("OPERATOR_NOT_CONFIGURED");
+ return equal(expected,createHash("sha256").update(candidate).digest("hex"));}
 export async function startOperatorSession(){
  const payload=String(Math.floor(Date.now()/1000)+28800)+"."+randomBytes(20).toString("base64url");
  (await cookies()).set(COOKIE,payload+"."+sign(payload),{httpOnly:true,secure:process.env.NODE_ENV==="production",sameSite:"strict",path:"/",maxAge:28800});
