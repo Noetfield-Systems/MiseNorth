@@ -1,0 +1,19 @@
+import Link from "next/link";
+import {notFound} from "next/navigation";
+import type {Metadata} from "next";
+import {readAudit} from "../../../../../lib/grader-store";
+import InquiryForm from "../../../../components/inquiry-form";
+export const dynamic="force-dynamic";
+export const metadata:Metadata={title:"Restaurant Website Concept Preview",description:"A clearly illustrative restaurant website concept from MiseNorth.",robots:{index:false,follow:false}};
+function displayName(host:string){return host.replace(/^www\./,"").split(".")[0].replace(/[-_]/g," ").replace(/\b\w/g,c=>c.toUpperCase()).slice(0,80);}
+export default async function Preview({params}:{params:Promise<{id:string}>}){
+ const {id}=await params;if(!/^[0-9a-f-]{36}$/i.test(id))notFound();
+ const audit=await readAudit(id);if(!audit)notFound();const name=displayName(audit.report.hostname);
+ return <main className="growth-home growth-concept-page">
+  <header className="growth-header"><div className="container growth-header-inner"><Link href="/" className="growth-logo"><span className="growth-logo-mark">M<span>.</span></span>MiseNorth</Link><Link className="growth-nav-cta" href={"/grader/report/"+id}>Back to measured report ↗</Link></div></header>
+  <section className="growth-concept-banner"><div className="container"><span className="growth-section-eyebrow">WEBSITE IMPROVEMENT CONCEPT · NOT A LIVE RESTAURANT SITE</span><h1>A stronger first impression for <em>{name}.</em></h1><p>Here is a sample visual direction for a direct restaurant guest experience. The names, menu placeholders and calls to action below are illustrative; we have not changed the restaurant’s real website or verified its offerings.</p></div></section>
+  <section className="container growth-concept-stage"><div className="growth-concept-browser"><div className="growth-concept-toolbar"><span>● &nbsp;● &nbsp;●</span><small>MISE NORTH · SAMPLE RESTAURANT WEBSITE</small><span>Concept only</span></div><div className="growth-concept-site"><div className="growth-concept-site-nav"><strong>{name}<i>.</i></strong><nav><span>Our story</span><span>Menu</span><span>Contact</span></nav><b>View menu ↗</b></div><div className="growth-concept-site-grid"><div className="growth-concept-copy"><span>MADE FOR THE MOMENTS YOU SHARE</span><h2>Good food.<br/>Good company.<br/><em>Right here.</em></h2><p>A polished home for your restaurant, where guests can discover the menu and reach your team in a few taps.</p><span className="growth-concept-fake-button">Explore our menu ↗</span><small>Sample wording and illustration · not actual restaurant content</small></div><div className="growth-concept-visual"><div className="growth-concept-plate"><div className="growth-concept-food"/></div></div></div><div className="growth-concept-tiles"><div><span>01</span><strong>Discover the menu</strong><p>Searchable categories and mobile-friendly browsing</p></div><div><span>02</span><strong>Order directly</strong><p>Pickup and dine-in requests to your own team</p></div><div><span>03</span><strong>Stay connected</strong><p>Reservation requests and guest relationships</p></div></div></div></div>
+  <div className="growth-concept-notes"><div><span className="growth-section-eyebrow">WHAT YOU COULD LAUNCH</span><h2>From concept to a working guest channel.</h2><p>Our actual platform already supports a restaurant-branded menu, QR table links, staff-managed requests, booking intake and guest contact records. This preview is a design concept; live content must come from the restaurant, and food payment/POS integrations are not yet commissioned.</p></div><InquiryForm auditId={id} intent="restaurant" headline="Request a restaurant setup"/></div></section>
+  <footer className="container growth-grader-footer"><Link href={"/grader/report/"+id}>← Back to audit report</Link><Link href="/demo">Explore real product workflows ↗</Link></footer>
+ </main>;
+}
