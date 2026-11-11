@@ -37,12 +37,12 @@ export async function saveAudit(report:WebsiteReport){
  return id;
 }
 export async function readAudit(id:string){
- await schema();
+ await ensureGrowthSchema();
  const r=await query<{id:string;report:WebsiteReport;created_at:string}>("SELECT id,report,created_at FROM misenorth_growth_audits WHERE id=$1",[id]);
  return r.rows[0]||null;
 }
 export async function saveInquiry(data:{auditId?:string|null;name:string;email:string;restaurantName:string;message:string;intent:"restaurant"|"partner"|"investor"}){
- await schema();
+ await ensureGrowthSchema();
  const id=randomUUID();
  await query("INSERT INTO misenorth_growth_inquiries(id,audit_id,name,email,restaurant_name,message,intent,marketing_consent) VALUES($1,$2,$3,$4,$5,$6,$7,false)",[id,data.auditId||null,data.name,data.email.toLowerCase(),data.restaurantName,data.message,data.intent]);
  return id;
