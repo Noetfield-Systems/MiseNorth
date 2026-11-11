@@ -1,0 +1,2 @@
+import {destroySession} from "../../../../lib/auth";import {fail,json,sameOrigin} from "../../../../lib/api";
+export const runtime="nodejs";export async function POST(req:Request){try{sameOrigin(req);await destroySession();return json({ok:true});}catch(e){return fail(e);}}

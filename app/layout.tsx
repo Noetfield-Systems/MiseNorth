@@ -1,0 +1,5 @@
+import type {Metadata,Viewport} from "next";import type {ReactNode} from "react";
+import "./globals.css";
+export const metadata:Metadata={title:{default:"MiseNorth — Restaurant Digital Operations",template:"%s | MiseNorth"},description:"A Vancouver restaurant digital operations platform for branded websites, digital menus, unpaid direct-order requests, reservation intake, guest records and QR menus.",applicationName:"MiseNorth",icons:{icon:"/icon.svg",shortcut:"/icon.svg"},appleWebApp:{capable:true,title:"MiseNorth",statusBarStyle:"black-translucent"},robots:{index:true,follow:true}};
+export const viewport:Viewport={width:"device-width",initialScale:1,themeColor:"#162b27"};
+export default function RootLayout({children}:{children:ReactNode}){return <html lang="en-CA"><body>{children}</body></html>;}

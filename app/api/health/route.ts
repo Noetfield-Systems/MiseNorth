@@ -1,0 +1,3 @@
+import {NextResponse} from "next/server";import {db} from "../../../lib/db";
+export const runtime="nodejs";export const dynamic="force-dynamic";
+export async function GET(){try{const p=await db();await p.query("SELECT 1");return NextResponse.json({status:"ok",service:"misenorth",database:"connected",time:new Date().toISOString()},{headers:{"cache-control":"no-store"}});}catch{return NextResponse.json({status:"degraded",service:"misenorth",database:"unavailable"},{status:503});}}

@@ -1,0 +1,2 @@
+import {currentUser} from "../../../../lib/auth";import {fail,json} from "../../../../lib/api";
+export const runtime="nodejs";export async function GET(){try{const u=await currentUser();if(!u)throw new Error("UNAUTHORIZED");return json({user:u});}catch(e){return fail(e);}}

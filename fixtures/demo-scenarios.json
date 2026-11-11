@@ -1,0 +1,1689 @@
+[
+  {
+    "slug": "demo-cedar-salt-cafe",
+    "name": "Cedar & Salt Café",
+    "ownerName": "Morgan Lee",
+    "ownerEmail": "owner@cedar-salt.demo.test",
+    "description": "Kitsilano café · speciality coffee, all-day breakfast and pickup.",
+    "phone": "+1-604-555-0101",
+    "address": "Kitsilano · Vancouver (demo)",
+    "city": "Vancouver",
+    "province": "BC",
+    "brandColor": "#244E45",
+    "taxRate": 0.12,
+    "acceptingOrders": true,
+    "acceptingReservations": true,
+    "categories": [
+      {
+        "name": "Coffee & Tea",
+        "items": [
+          {
+            "name": "Flat White",
+            "description": "Double espresso with silky steamed milk.",
+            "price": 5.25
+          },
+          {
+            "name": "Maple Oat Latte",
+            "description": "Espresso, oat milk and maple.",
+            "price": 6.25
+          }
+        ]
+      },
+      {
+        "name": "All-day Kitchen",
+        "items": [
+          {
+            "name": "Avocado Toast",
+            "description": "Sourdough, avocado, herbs and lemon.",
+            "price": 14.5
+          },
+          {
+            "name": "Egg & Cheddar Sourdough",
+            "description": "Scrambled egg, aged cheddar and chives.",
+            "price": 13
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "label": "Window 1",
+        "capacity": 2
+      },
+      {
+        "label": "Patio 1",
+        "capacity": 2
+      }
+    ],
+    "guests": [
+      {
+        "name": "Maya Thompson",
+        "email": "maya@cedar-salt.example.test",
+        "phone": "+1-604-555-0191",
+        "visits": 5,
+        "spend": 8640,
+        "points": 86,
+        "marketing": true,
+        "daysAgo": 1
+      },
+      {
+        "name": "Ethan Park",
+        "email": "ethan@cedar-salt.example.test",
+        "phone": "+1-604-555-0192",
+        "visits": 3,
+        "spend": 5425,
+        "points": 54,
+        "marketing": false,
+        "daysAgo": 4
+      },
+      {
+        "name": "Sofia Martin",
+        "email": "sofia@cedar-salt.example.test",
+        "phone": "+1-604-555-0193",
+        "visits": 2,
+        "spend": 3125,
+        "points": 31,
+        "marketing": true,
+        "daysAgo": 9
+      }
+    ],
+    "orders": [
+      {
+        "number": "CED-1048",
+        "guest": "maya@cedar-salt.example.test",
+        "status": "new",
+        "type": "pickup",
+        "minutes": 12,
+        "items": [
+          [
+            "Flat White",
+            2
+          ],
+          [
+            "Avocado Toast",
+            1
+          ]
+        ]
+      },
+      {
+        "number": "CED-1047",
+        "guest": "ethan@cedar-salt.example.test",
+        "status": "ready",
+        "type": "pickup",
+        "minutes": 27,
+        "items": [
+          [
+            "Maple Oat Latte",
+            1
+          ],
+          [
+            "Egg & Cheddar Sourdough",
+            1
+          ]
+        ]
+      },
+      {
+        "number": "CED-1044",
+        "guest": "sofia@cedar-salt.example.test",
+        "status": "completed",
+        "type": "pickup",
+        "minutes": 190,
+        "items": [
+          [
+            "Flat White",
+            1
+          ]
+        ]
+      }
+    ],
+    "reservations": [
+      {
+        "key": "brunch-1",
+        "guest": "maya@cedar-salt.example.test",
+        "party": 2,
+        "days": 2,
+        "hour": 2,
+        "status": "requested",
+        "notes": "Window seat preferred."
+      },
+      {
+        "key": "brunch-2",
+        "guest": "ethan@cedar-salt.example.test",
+        "party": 3,
+        "days": 3,
+        "hour": 3,
+        "status": "confirmed",
+        "notes": "High chair requested."
+      }
+    ],
+    "campaign": {
+      "name": "[DEMO] Weekend brunch note",
+      "channel": "email",
+      "subject": "Make room for a slower morning",
+      "body": "Synthetic campaign draft for opted-in guests. Not sent."
+    },
+    "businessType": "Neighbourhood café",
+    "area": "Kitsilano",
+    "focus": "Morning pickup · all-day breakfast · brunch reservations"
+  },
+  {
+    "slug": "demo-harbour-pine-kitchen",
+    "name": "Harbour & Pine Kitchen",
+    "ownerName": "Avery Chen",
+    "ownerEmail": "owner@harbour-pine.demo.test",
+    "description": "Gastown West Coast dining room · dinner, table QR and reservations.",
+    "phone": "+1-604-555-0102",
+    "address": "Gastown · Vancouver (demo)",
+    "city": "Vancouver",
+    "province": "BC",
+    "brandColor": "#344D63",
+    "taxRate": 0.12,
+    "acceptingOrders": true,
+    "acceptingReservations": true,
+    "categories": [
+      {
+        "name": "From the Coast",
+        "items": [
+          {
+            "name": "Cedar Plank Salmon",
+            "description": "Salmon, charred lemon and seasonal greens.",
+            "price": 32
+          },
+          {
+            "name": "Smoked Beet Salad",
+            "description": "Whipped chèvre, hazelnuts and dill.",
+            "price": 16.5
+          }
+        ]
+      },
+      {
+        "name": "Mains & Sides",
+        "items": [
+          {
+            "name": "Wild Mushroom Risotto",
+            "description": "Forest mushrooms and aged parmesan.",
+            "price": 27.5
+          },
+          {
+            "name": "Truffle Fries",
+            "description": "Crisp fries, truffle oil and herbs.",
+            "price": 12
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "label": "01 · Window",
+        "capacity": 2
+      },
+      {
+        "label": "02 · Banquette",
+        "capacity": 4
+      },
+      {
+        "label": "03 · Main",
+        "capacity": 4
+      },
+      {
+        "label": "04 · Terrace",
+        "capacity": 4
+      }
+    ],
+    "guests": [
+      {
+        "name": "Olivia Brooks",
+        "email": "olivia@harbour-pine.example.test",
+        "phone": "+1-604-555-0194",
+        "visits": 4,
+        "spend": 24850,
+        "points": 248,
+        "marketing": true,
+        "daysAgo": 2
+      },
+      {
+        "name": "Noah Wilson",
+        "email": "noah@harbour-pine.example.test",
+        "phone": "+1-604-555-0195",
+        "visits": 2,
+        "spend": 13600,
+        "points": 136,
+        "marketing": false,
+        "daysAgo": 8
+      },
+      {
+        "name": "Priya Shah",
+        "email": "priya@harbour-pine.example.test",
+        "phone": "+1-604-555-0196",
+        "visits": 6,
+        "spend": 38900,
+        "points": 389,
+        "marketing": true,
+        "daysAgo": 3
+      }
+    ],
+    "orders": [
+      {
+        "number": "HBR-2081",
+        "guest": "olivia@harbour-pine.example.test",
+        "status": "new",
+        "type": "dine_in",
+        "table": "04 · Terrace",
+        "minutes": 8,
+        "items": [
+          [
+            "Cedar Plank Salmon",
+            2
+          ],
+          [
+            "Truffle Fries",
+            1
+          ]
+        ]
+      },
+      {
+        "number": "HBR-2079",
+        "guest": "noah@harbour-pine.example.test",
+        "status": "preparing",
+        "type": "dine_in",
+        "table": "02 · Banquette",
+        "minutes": 19,
+        "items": [
+          [
+            "Wild Mushroom Risotto",
+            1
+          ],
+          [
+            "Smoked Beet Salad",
+            1
+          ]
+        ]
+      },
+      {
+        "number": "HBR-2072",
+        "guest": "priya@harbour-pine.example.test",
+        "status": "completed",
+        "type": "dine_in",
+        "table": "01 · Window",
+        "minutes": 155,
+        "items": [
+          [
+            "Cedar Plank Salmon",
+            1
+          ]
+        ]
+      }
+    ],
+    "reservations": [
+      {
+        "key": "dinner-1",
+        "guest": "olivia@harbour-pine.example.test",
+        "party": 4,
+        "days": 1,
+        "hour": 7,
+        "status": "requested",
+        "notes": "Anniversary dinner; quiet table."
+      },
+      {
+        "key": "dinner-2",
+        "guest": "priya@harbour-pine.example.test",
+        "party": 2,
+        "days": 2,
+        "hour": 8,
+        "status": "confirmed",
+        "notes": "Window table requested."
+      }
+    ],
+    "campaign": {
+      "name": "[DEMO] Seasonal menu introduction",
+      "channel": "in_store",
+      "subject": "",
+      "body": "Synthetic in-store campaign draft. Not published."
+    },
+    "businessType": "Full-service West Coast dining",
+    "area": "Gastown",
+    "focus": "Dinner service · table QR · booking approvals"
+  },
+  {
+    "slug": "demo-northline-noodles",
+    "name": "Northline Noodles",
+    "ownerName": "Jordan Kim",
+    "ownerEmail": "owner@northline-noodles.demo.test",
+    "description": "Mount Pleasant fast-casual noodle bar · lunch rush, pickup and loyalty.",
+    "phone": "+1-604-555-0103",
+    "address": "Mount Pleasant · Vancouver (demo)",
+    "city": "Vancouver",
+    "province": "BC",
+    "brandColor": "#8A4D2D",
+    "taxRate": 0.12,
+    "acceptingOrders": true,
+    "acceptingReservations": false,
+    "categories": [
+      {
+        "name": "Noodles & Bowls",
+        "items": [
+          {
+            "name": "Miso Chicken Ramen",
+            "description": "Chicken broth, slow-cooked chicken, egg and scallions.",
+            "price": 19.75
+          },
+          {
+            "name": "Chilli Crisp Noodles",
+            "description": "House chilli oil, sesame and greens.",
+            "price": 18.25
+          }
+        ]
+      },
+      {
+        "name": "Small Plates & Drinks",
+        "items": [
+          {
+            "name": "Pork Gyoza",
+            "description": "Pan-seared dumplings with ginger soy.",
+            "price": 9.5
+          },
+          {
+            "name": "Yuzu Soda",
+            "description": "Sparkling yuzu with fresh citrus.",
+            "price": 5
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "label": "Counter 1",
+        "capacity": 2
+      },
+      {
+        "label": "Counter 2",
+        "capacity": 2
+      },
+      {
+        "label": "Table 3",
+        "capacity": 4
+      }
+    ],
+    "guests": [
+      {
+        "name": "Lucas Nguyen",
+        "email": "lucas@northline.example.test",
+        "phone": "+1-604-555-0197",
+        "visits": 8,
+        "spend": 17650,
+        "points": 176,
+        "marketing": true,
+        "daysAgo": 1
+      },
+      {
+        "name": "Amelia Scott",
+        "email": "amelia@northline.example.test",
+        "phone": "+1-604-555-0198",
+        "visits": 3,
+        "spend": 6425,
+        "points": 64,
+        "marketing": false,
+        "daysAgo": 5
+      },
+      {
+        "name": "Harper Singh",
+        "email": "harper@northline.example.test",
+        "phone": "+1-604-555-0199",
+        "visits": 5,
+        "spend": 12500,
+        "points": 125,
+        "marketing": true,
+        "daysAgo": 2
+      }
+    ],
+    "orders": [
+      {
+        "number": "NTH-3091",
+        "guest": "lucas@northline.example.test",
+        "status": "new",
+        "type": "pickup",
+        "minutes": 5,
+        "items": [
+          [
+            "Miso Chicken Ramen",
+            1
+          ],
+          [
+            "Pork Gyoza",
+            1
+          ]
+        ]
+      },
+      {
+        "number": "NTH-3088",
+        "guest": "amelia@northline.example.test",
+        "status": "ready",
+        "type": "pickup",
+        "minutes": 16,
+        "items": [
+          [
+            "Chilli Crisp Noodles",
+            1
+          ],
+          [
+            "Yuzu Soda",
+            1
+          ]
+        ]
+      },
+      {
+        "number": "NTH-3082",
+        "guest": "harper@northline.example.test",
+        "status": "completed",
+        "type": "pickup",
+        "minutes": 135,
+        "items": [
+          [
+            "Miso Chicken Ramen",
+            1
+          ]
+        ]
+      }
+    ],
+    "reservations": [],
+    "campaign": {
+      "name": "[DEMO] Lunch regulars loyalty note",
+      "channel": "email",
+      "subject": "Your next noodle bowl is closer",
+      "body": "Synthetic loyalty campaign draft. Not sent."
+    },
+    "businessType": "Fast-casual noodle bar",
+    "area": "Mount Pleasant",
+    "focus": "Lunch rush · direct pickup · repeat visits"
+  },
+  {
+    "slug": "demo-juniper-stone-yaletown",
+    "name": "Juniper & Stone Kitchen",
+    "ownerName": "Rowan Ellis",
+    "ownerEmail": "owner@juniper-stone-yaletown.demo.test",
+    "description": "A contemporary Yaletown bistro with seasonal West Coast plates, dinner bookings and attentive table service.",
+    "phone": "+1-604-555-3100",
+    "address": "Yaletown · Vancouver (demo)",
+    "city": "Vancouver",
+    "province": "BC",
+    "brandColor": "#536B5A",
+    "taxRate": 0.12,
+    "acceptingOrders": true,
+    "acceptingReservations": true,
+    "businessType": "Modern neighbourhood bistro",
+    "area": "Yaletown",
+    "focus": "Dinner service · seasonal mains · reservations",
+    "agentObjective": "Owner agent: Dinner service · seasonal mains · reservations. Guest agent: place an unpaid sample order. Shift-manager agent: process kitchen and booking workflow; verify tenant isolation.",
+    "categories": [
+      {
+        "name": "Small Plates",
+        "items": [
+          {
+            "name": "Whipped Ricotta Toast",
+            "description": "Grilled sourdough, ricotta, honey and thyme.",
+            "price": 13.5
+          },
+          {
+            "name": "Charred Broccolini",
+            "description": "Lemon, toasted almonds and parmesan.",
+            "price": 14
+          }
+        ]
+      },
+      {
+        "name": "Dinner",
+        "items": [
+          {
+            "name": "Seared Salmon Bowl",
+            "description": "Crispy potatoes, greens and dill yoghurt.",
+            "price": 26.5
+          },
+          {
+            "name": "Mushroom Pappardelle",
+            "description": "Wild mushrooms, sage and parmesan.",
+            "price": 24.5
+          },
+          {
+            "name": "Olive Oil Cake",
+            "description": "Citrus cream and berries.",
+            "price": 10
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "label": "Window Two",
+        "capacity": 2
+      },
+      {
+        "label": "Banquette",
+        "capacity": 4
+      },
+      {
+        "label": "Dining Table 3",
+        "capacity": 4
+      }
+    ],
+    "guests": [
+      {
+        "name": "Sophie Chen",
+        "email": "sophie.chen.yaletown@example.test",
+        "phone": "+1-604-555-2101",
+        "visits": 4,
+        "spend": 12840,
+        "points": 128,
+        "marketing": true,
+        "daysAgo": 1
+      },
+      {
+        "name": "Daniel Wright",
+        "email": "daniel.wright.yaletown@example.test",
+        "phone": "+1-604-555-2102",
+        "visits": 2,
+        "spend": 6750,
+        "points": 67,
+        "marketing": false,
+        "daysAgo": 4
+      },
+      {
+        "name": "Leah Foster",
+        "email": "leah.foster.yaletown@example.test",
+        "phone": "+1-604-555-2103",
+        "visits": 6,
+        "spend": 22900,
+        "points": 229,
+        "marketing": true,
+        "daysAgo": 7
+      }
+    ],
+    "orders": [
+      {
+        "number": "JST-410",
+        "guest": "sophie.chen.yaletown@example.test",
+        "status": "new",
+        "type": "dine_in",
+        "table": "Window Two",
+        "minutes": 6,
+        "items": [
+          [
+            "Whipped Ricotta Toast",
+            2
+          ],
+          [
+            "Charred Broccolini",
+            1
+          ]
+        ]
+      },
+      {
+        "number": "JST-411",
+        "guest": "daniel.wright.yaletown@example.test",
+        "status": "preparing",
+        "type": "dine_in",
+        "table": "Banquette",
+        "minutes": 15,
+        "items": [
+          [
+            "Seared Salmon Bowl",
+            1
+          ]
+        ]
+      },
+      {
+        "number": "JST-412",
+        "guest": "leah.foster.yaletown@example.test",
+        "status": "completed",
+        "type": "pickup",
+        "table": null,
+        "minutes": 120,
+        "items": [
+          [
+            "Mushroom Pappardelle",
+            1
+          ]
+        ]
+      }
+    ],
+    "reservations": [
+      {
+        "key": "booking-0-1",
+        "guest": "sophie.chen.yaletown@example.test",
+        "party": 2,
+        "days": 4,
+        "hour": 1,
+        "status": "requested",
+        "notes": "Synthetic guest booking; window seating preferred."
+      },
+      {
+        "key": "booking-0-2",
+        "guest": "leah.foster.yaletown@example.test",
+        "party": 4,
+        "days": 6,
+        "hour": 2,
+        "status": "confirmed",
+        "notes": "Synthetic confirmed table booking."
+      }
+    ],
+    "campaign": {
+      "name": "[DEMO] Yaletown guest return campaign",
+      "channel": "email",
+      "subject": "A note from your neighbourhood restaurant",
+      "body": "Synthetic draft for opted-in sample guests only. Not sent."
+    }
+  },
+  {
+    "slug": "demo-morning-tide-west-end",
+    "name": "Morning Tide Brunch Co.",
+    "ownerName": "Taylor Brooks",
+    "ownerEmail": "owner@morning-tide-west-end.demo.test",
+    "description": "A bright West End brunch room focused on coffee, generous breakfast plates and weekend reservations.",
+    "phone": "+1-604-555-3101",
+    "address": "West End · Vancouver (demo)",
+    "city": "Vancouver",
+    "province": "BC",
+    "brandColor": "#7B6654",
+    "taxRate": 0.12,
+    "acceptingOrders": true,
+    "acceptingReservations": true,
+    "businessType": "Brunch café",
+    "area": "West End",
+    "focus": "Weekend brunch · coffee · table bookings",
+    "agentObjective": "Owner agent: Weekend brunch · coffee · table bookings. Guest agent: place an unpaid sample order. Shift-manager agent: process kitchen and booking workflow; verify tenant isolation.",
+    "categories": [
+      {
+        "name": "Coffee Bar",
+        "items": [
+          {
+            "name": "Rose Cardamom Latte",
+            "description": "Espresso, steamed milk and rose-cardamom syrup.",
+            "price": 6.5
+          },
+          {
+            "name": "Vanilla Cold Brew",
+            "description": "Slow-steeped coffee and house vanilla.",
+            "price": 5.75
+          }
+        ]
+      },
+      {
+        "name": "Brunch",
+        "items": [
+          {
+            "name": "Ricotta Hotcakes",
+            "description": "Whipped ricotta, citrus and seasonal fruit.",
+            "price": 18
+          },
+          {
+            "name": "Smoked Salmon Benedict",
+            "description": "Poached eggs, salmon and dill hollandaise.",
+            "price": 21
+          },
+          {
+            "name": "Crispy Potato Hash",
+            "description": "Roasted potatoes, herbs and two eggs.",
+            "price": 17
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "label": "Window 1",
+        "capacity": 2
+      },
+      {
+        "label": "Window 2",
+        "capacity": 2
+      },
+      {
+        "label": "Garden Bench",
+        "capacity": 4
+      }
+    ],
+    "guests": [
+      {
+        "name": "Priya Rao",
+        "email": "priya.rao.west-end@example.test",
+        "phone": "+1-604-555-2111",
+        "visits": 5,
+        "spend": 13340,
+        "points": 133,
+        "marketing": true,
+        "daysAgo": 1
+      },
+      {
+        "name": "Miles Carter",
+        "email": "miles.carter.west-end@example.test",
+        "phone": "+1-604-555-2112",
+        "visits": 3,
+        "spend": 7250,
+        "points": 72,
+        "marketing": false,
+        "daysAgo": 4
+      },
+      {
+        "name": "Emma Clarke",
+        "email": "emma.clarke.west-end@example.test",
+        "phone": "+1-604-555-2113",
+        "visits": 7,
+        "spend": 23400,
+        "points": 234,
+        "marketing": true,
+        "daysAgo": 7
+      }
+    ],
+    "orders": [
+      {
+        "number": "MTD-420",
+        "guest": "priya.rao.west-end@example.test",
+        "status": "new",
+        "type": "pickup",
+        "table": null,
+        "minutes": 7,
+        "items": [
+          [
+            "Rose Cardamom Latte",
+            2
+          ],
+          [
+            "Vanilla Cold Brew",
+            1
+          ]
+        ]
+      },
+      {
+        "number": "MTD-421",
+        "guest": "miles.carter.west-end@example.test",
+        "status": "preparing",
+        "type": "dine_in",
+        "table": "Window 2",
+        "minutes": 16,
+        "items": [
+          [
+            "Ricotta Hotcakes",
+            1
+          ]
+        ]
+      },
+      {
+        "number": "MTD-422",
+        "guest": "emma.clarke.west-end@example.test",
+        "status": "completed",
+        "type": "pickup",
+        "table": null,
+        "minutes": 125,
+        "items": [
+          [
+            "Smoked Salmon Benedict",
+            1
+          ]
+        ]
+      }
+    ],
+    "reservations": [
+      {
+        "key": "booking-1-1",
+        "guest": "priya.rao.west-end@example.test",
+        "party": 2,
+        "days": 5,
+        "hour": 1,
+        "status": "requested",
+        "notes": "Synthetic guest booking; window seating preferred."
+      },
+      {
+        "key": "booking-1-2",
+        "guest": "emma.clarke.west-end@example.test",
+        "party": 4,
+        "days": 7,
+        "hour": 2,
+        "status": "confirmed",
+        "notes": "Synthetic confirmed table booking."
+      }
+    ],
+    "campaign": {
+      "name": "[DEMO] West End guest return campaign",
+      "channel": "email",
+      "subject": "A note from your neighbourhood restaurant",
+      "body": "Synthetic draft for opted-in sample guests only. Not sent."
+    }
+  },
+  {
+    "slug": "demo-via-emilia-commercial-drive",
+    "name": "Via Emilia Pizzeria",
+    "ownerName": "Luca Romano",
+    "ownerEmail": "owner@via-emilia-commercial-drive.demo.test",
+    "description": "A neighbourhood pizzeria on Commercial Drive serving wood-fired pies, family sides and easy pickup.",
+    "phone": "+1-604-555-3102",
+    "address": "Commercial Drive · Vancouver (demo)",
+    "city": "Vancouver",
+    "province": "BC",
+    "brandColor": "#9A563B",
+    "taxRate": 0.12,
+    "acceptingOrders": true,
+    "acceptingReservations": true,
+    "businessType": "Wood-fired pizzeria",
+    "area": "Commercial Drive",
+    "focus": "Wood-fired pizza · pickup · family tables",
+    "agentObjective": "Owner agent: Wood-fired pizza · pickup · family tables. Guest agent: place an unpaid sample order. Shift-manager agent: process kitchen and booking workflow; verify tenant isolation.",
+    "categories": [
+      {
+        "name": "Wood-fired Pies",
+        "items": [
+          {
+            "name": "Margherita",
+            "description": "San Marzano tomato, fior di latte and basil.",
+            "price": 19
+          },
+          {
+            "name": "Salami Piccante",
+            "description": "Spicy salami, mozzarella and chilli honey.",
+            "price": 23
+          },
+          {
+            "name": "Mushroom Bianca",
+            "description": "Roasted mushrooms, mozzarella and thyme.",
+            "price": 22
+          }
+        ]
+      },
+      {
+        "name": "Sides & Sweets",
+        "items": [
+          {
+            "name": "Burrata Tomato Salad",
+            "description": "Burrata, heirloom tomato and basil oil.",
+            "price": 16
+          },
+          {
+            "name": "Tiramisu",
+            "description": "Espresso sponge and mascarpone.",
+            "price": 9
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "label": "Front 1",
+        "capacity": 2
+      },
+      {
+        "label": "Front 2",
+        "capacity": 4
+      },
+      {
+        "label": "Back Booth",
+        "capacity": 4
+      }
+    ],
+    "guests": [
+      {
+        "name": "Amir Haddad",
+        "email": "amir.haddad.commercial-drive@example.test",
+        "phone": "+1-604-555-2121",
+        "visits": 6,
+        "spend": 13840,
+        "points": 138,
+        "marketing": true,
+        "daysAgo": 1
+      },
+      {
+        "name": "Grace Kim",
+        "email": "grace.kim.commercial-drive@example.test",
+        "phone": "+1-604-555-2122",
+        "visits": 4,
+        "spend": 7750,
+        "points": 77,
+        "marketing": false,
+        "daysAgo": 4
+      },
+      {
+        "name": "Theo Martin",
+        "email": "theo.martin.commercial-drive@example.test",
+        "phone": "+1-604-555-2123",
+        "visits": 8,
+        "spend": 23900,
+        "points": 239,
+        "marketing": true,
+        "daysAgo": 7
+      }
+    ],
+    "orders": [
+      {
+        "number": "VIA-430",
+        "guest": "amir.haddad.commercial-drive@example.test",
+        "status": "new",
+        "type": "pickup",
+        "table": null,
+        "minutes": 8,
+        "items": [
+          [
+            "Margherita",
+            2
+          ],
+          [
+            "Salami Piccante",
+            1
+          ]
+        ]
+      },
+      {
+        "number": "VIA-431",
+        "guest": "grace.kim.commercial-drive@example.test",
+        "status": "preparing",
+        "type": "dine_in",
+        "table": "Front 2",
+        "minutes": 17,
+        "items": [
+          [
+            "Mushroom Bianca",
+            1
+          ]
+        ]
+      },
+      {
+        "number": "VIA-432",
+        "guest": "theo.martin.commercial-drive@example.test",
+        "status": "completed",
+        "type": "pickup",
+        "table": null,
+        "minutes": 130,
+        "items": [
+          [
+            "Burrata Tomato Salad",
+            1
+          ]
+        ]
+      }
+    ],
+    "reservations": [
+      {
+        "key": "booking-2-1",
+        "guest": "amir.haddad.commercial-drive@example.test",
+        "party": 2,
+        "days": 4,
+        "hour": 1,
+        "status": "requested",
+        "notes": "Synthetic guest booking; window seating preferred."
+      },
+      {
+        "key": "booking-2-2",
+        "guest": "theo.martin.commercial-drive@example.test",
+        "party": 4,
+        "days": 6,
+        "hour": 2,
+        "status": "confirmed",
+        "notes": "Synthetic confirmed table booking."
+      }
+    ],
+    "campaign": {
+      "name": "[DEMO] Commercial Drive guest return campaign",
+      "channel": "email",
+      "subject": "A note from your neighbourhood restaurant",
+      "body": "Synthetic draft for opted-in sample guests only. Not sent."
+    }
+  },
+  {
+    "slug": "demo-flour-fig-kerrisdale",
+    "name": "Flour & Fig Bakehouse",
+    "ownerName": "Avery Morgan",
+    "ownerEmail": "owner@flour-fig-kerrisdale.demo.test",
+    "description": "An artisan Kerrisdale bakehouse with naturally leavened bread, pastries and a compact coffee bar.",
+    "phone": "+1-604-555-3103",
+    "address": "Kerrisdale · Vancouver (demo)",
+    "city": "Vancouver",
+    "province": "BC",
+    "brandColor": "#A47755",
+    "taxRate": 0.12,
+    "acceptingOrders": true,
+    "acceptingReservations": false,
+    "businessType": "Artisan bakery & coffee",
+    "area": "Kerrisdale",
+    "focus": "Bakery counter · pre-orders · coffee service",
+    "agentObjective": "Owner agent: Bakery counter · pre-orders · coffee service. Guest agent: place an unpaid sample order. Shift-manager agent: process kitchen and booking workflow; verify tenant isolation.",
+    "categories": [
+      {
+        "name": "Bakery",
+        "items": [
+          {
+            "name": "Pistachio Croissant",
+            "description": "All-butter pastry with pistachio frangipane.",
+            "price": 6.75
+          },
+          {
+            "name": "Brown Butter Cookie",
+            "description": "Dark chocolate and flaky sea salt.",
+            "price": 4.5
+          },
+          {
+            "name": "Country Sourdough",
+            "description": "Naturally leavened 800 g loaf.",
+            "price": 9.5
+          }
+        ]
+      },
+      {
+        "name": "Coffee",
+        "items": [
+          {
+            "name": "London Fog",
+            "description": "Earl Grey, vanilla and steamed milk.",
+            "price": 5.5
+          },
+          {
+            "name": "Flat White",
+            "description": "Double espresso with silky steamed milk.",
+            "price": 5.25
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "label": "Window Counter",
+        "capacity": 2
+      },
+      {
+        "label": "Side Table",
+        "capacity": 2
+      }
+    ],
+    "guests": [
+      {
+        "name": "Ava Miller",
+        "email": "ava.miller.kerrisdale@example.test",
+        "phone": "+1-604-555-2131",
+        "visits": 4,
+        "spend": 14340,
+        "points": 143,
+        "marketing": true,
+        "daysAgo": 1
+      },
+      {
+        "name": "Noah Fraser",
+        "email": "noah.fraser.kerrisdale@example.test",
+        "phone": "+1-604-555-2132",
+        "visits": 2,
+        "spend": 8250,
+        "points": 82,
+        "marketing": false,
+        "daysAgo": 4
+      },
+      {
+        "name": "Isla Bennett",
+        "email": "isla.bennett.kerrisdale@example.test",
+        "phone": "+1-604-555-2133",
+        "visits": 6,
+        "spend": 24400,
+        "points": 244,
+        "marketing": true,
+        "daysAgo": 7
+      }
+    ],
+    "orders": [
+      {
+        "number": "FFB-440",
+        "guest": "ava.miller.kerrisdale@example.test",
+        "status": "new",
+        "type": "pickup",
+        "table": null,
+        "minutes": 9,
+        "items": [
+          [
+            "Pistachio Croissant",
+            2
+          ],
+          [
+            "Brown Butter Cookie",
+            1
+          ]
+        ]
+      },
+      {
+        "number": "FFB-441",
+        "guest": "noah.fraser.kerrisdale@example.test",
+        "status": "preparing",
+        "type": "pickup",
+        "table": null,
+        "minutes": 18,
+        "items": [
+          [
+            "Country Sourdough",
+            1
+          ]
+        ]
+      },
+      {
+        "number": "FFB-442",
+        "guest": "isla.bennett.kerrisdale@example.test",
+        "status": "completed",
+        "type": "pickup",
+        "table": null,
+        "minutes": 135,
+        "items": [
+          [
+            "London Fog",
+            1
+          ]
+        ]
+      }
+    ],
+    "reservations": [],
+    "campaign": {
+      "name": "[DEMO] Kerrisdale guest return campaign",
+      "channel": "email",
+      "subject": "A note from your neighbourhood restaurant",
+      "body": "Synthetic draft for opted-in sample guests only. Not sent."
+    }
+  },
+  {
+    "slug": "demo-steam-cedar-chinatown",
+    "name": "Steam & Cedar Dumpling House",
+    "ownerName": "Jamie Wu",
+    "ownerEmail": "owner@steam-cedar-chinatown.demo.test",
+    "description": "A Chinatown dumpling house built around handmade baskets, shared plates and a fast takeaway counter.",
+    "phone": "+1-604-555-3104",
+    "address": "Chinatown · Vancouver (demo)",
+    "city": "Vancouver",
+    "province": "BC",
+    "brandColor": "#8F5147",
+    "taxRate": 0.12,
+    "acceptingOrders": true,
+    "acceptingReservations": true,
+    "businessType": "Casual dumpling house",
+    "area": "Chinatown",
+    "focus": "Dine-in baskets · takeaway · shared tables",
+    "agentObjective": "Owner agent: Dine-in baskets · takeaway · shared tables. Guest agent: place an unpaid sample order. Shift-manager agent: process kitchen and booking workflow; verify tenant isolation.",
+    "categories": [
+      {
+        "name": "Dumpling Baskets",
+        "items": [
+          {
+            "name": "Pork & Chive Dumplings",
+            "description": "Hand-folded dumplings with ginger soy.",
+            "price": 15.5
+          },
+          {
+            "name": "Shiitake Mushroom Dumplings",
+            "description": "Mushroom, cabbage and sesame.",
+            "price": 14.5
+          },
+          {
+            "name": "Chicken Xiao Long Bao",
+            "description": "Soup dumplings with black vinegar.",
+            "price": 17
+          }
+        ]
+      },
+      {
+        "name": "Sides & Tea",
+        "items": [
+          {
+            "name": "Smashed Cucumber Salad",
+            "description": "Garlic, chilli oil and black vinegar.",
+            "price": 9
+          },
+          {
+            "name": "Jasmine Iced Tea",
+            "description": "Cold-brewed jasmine tea.",
+            "price": 4.75
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "label": "Round Table 1",
+        "capacity": 4
+      },
+      {
+        "label": "Round Table 2",
+        "capacity": 4
+      },
+      {
+        "label": "Counter 1",
+        "capacity": 2
+      }
+    ],
+    "guests": [
+      {
+        "name": "Mason Lee",
+        "email": "mason.lee.chinatown@example.test",
+        "phone": "+1-604-555-2141",
+        "visits": 5,
+        "spend": 14840,
+        "points": 148,
+        "marketing": true,
+        "daysAgo": 1
+      },
+      {
+        "name": "Chloe Adams",
+        "email": "chloe.adams.chinatown@example.test",
+        "phone": "+1-604-555-2142",
+        "visits": 3,
+        "spend": 8750,
+        "points": 87,
+        "marketing": false,
+        "daysAgo": 4
+      },
+      {
+        "name": "Eli Turner",
+        "email": "eli.turner.chinatown@example.test",
+        "phone": "+1-604-555-2143",
+        "visits": 7,
+        "spend": 24900,
+        "points": 249,
+        "marketing": true,
+        "daysAgo": 7
+      }
+    ],
+    "orders": [
+      {
+        "number": "SCD-450",
+        "guest": "mason.lee.chinatown@example.test",
+        "status": "new",
+        "type": "dine_in",
+        "table": "Round Table 1",
+        "minutes": 10,
+        "items": [
+          [
+            "Pork & Chive Dumplings",
+            2
+          ],
+          [
+            "Shiitake Mushroom Dumplings",
+            1
+          ]
+        ]
+      },
+      {
+        "number": "SCD-451",
+        "guest": "chloe.adams.chinatown@example.test",
+        "status": "preparing",
+        "type": "pickup",
+        "table": null,
+        "minutes": 19,
+        "items": [
+          [
+            "Chicken Xiao Long Bao",
+            1
+          ]
+        ]
+      },
+      {
+        "number": "SCD-452",
+        "guest": "eli.turner.chinatown@example.test",
+        "status": "completed",
+        "type": "dine_in",
+        "table": "Round Table 1",
+        "minutes": 140,
+        "items": [
+          [
+            "Smashed Cucumber Salad",
+            1
+          ]
+        ]
+      }
+    ],
+    "reservations": [
+      {
+        "key": "booking-4-1",
+        "guest": "mason.lee.chinatown@example.test",
+        "party": 2,
+        "days": 4,
+        "hour": 1,
+        "status": "requested",
+        "notes": "Synthetic guest booking; window seating preferred."
+      },
+      {
+        "key": "booking-4-2",
+        "guest": "eli.turner.chinatown@example.test",
+        "party": 4,
+        "days": 6,
+        "hour": 2,
+        "status": "confirmed",
+        "notes": "Synthetic confirmed table booking."
+      }
+    ],
+    "campaign": {
+      "name": "[DEMO] Chinatown guest return campaign",
+      "channel": "email",
+      "subject": "A note from your neighbourhood restaurant",
+      "body": "Synthetic draft for opted-in sample guests only. Not sent."
+    }
+  },
+  {
+    "slug": "demo-pacific-bowl-olympic-village",
+    "name": "Pacific Bowl Lab",
+    "ownerName": "Nina Patel",
+    "ownerEmail": "owner@pacific-bowl-olympic-village.demo.test",
+    "description": "An Olympic Village fast-casual kitchen for Pacific-inspired grain bowls, fresh toppings and quick pickup.",
+    "phone": "+1-604-555-3105",
+    "address": "Olympic Village · Vancouver (demo)",
+    "city": "Vancouver",
+    "province": "BC",
+    "brandColor": "#3D7B78",
+    "taxRate": 0.12,
+    "acceptingOrders": true,
+    "acceptingReservations": false,
+    "businessType": "Healthy fast-casual bowls",
+    "area": "Olympic Village",
+    "focus": "Lunch pickup · custom bowls · allergen clarity",
+    "agentObjective": "Owner agent: Lunch pickup · custom bowls · allergen clarity. Guest agent: place an unpaid sample order. Shift-manager agent: process kitchen and booking workflow; verify tenant isolation.",
+    "categories": [
+      {
+        "name": "Signature Bowls",
+        "items": [
+          {
+            "name": "Wild Salmon Poke Bowl",
+            "description": "Salmon, sushi rice, cucumber and sesame.",
+            "price": 21.5
+          },
+          {
+            "name": "Crispy Tofu Greens Bowl",
+            "description": "Ginger tofu, quinoa, greens and miso dressing.",
+            "price": 18.5
+          },
+          {
+            "name": "Chicken Rice Bowl",
+            "description": "Gochujang chicken, brown rice and slaw.",
+            "price": 19.5
+          }
+        ]
+      },
+      {
+        "name": "Extras",
+        "items": [
+          {
+            "name": "Miso Egg",
+            "description": "Soy-marinated egg.",
+            "price": 3.5
+          },
+          {
+            "name": "Yuzu Sparkling Water",
+            "description": "Citrus and sparkling water.",
+            "price": 4.5
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "label": "Community Bar 1",
+        "capacity": 2
+      },
+      {
+        "label": "Community Bar 2",
+        "capacity": 2
+      },
+      {
+        "label": "Window Table",
+        "capacity": 4
+      }
+    ],
+    "guests": [
+      {
+        "name": "Zoe Campbell",
+        "email": "zoe.campbell.olympic-village@example.test",
+        "phone": "+1-604-555-2151",
+        "visits": 6,
+        "spend": 15340,
+        "points": 153,
+        "marketing": true,
+        "daysAgo": 1
+      },
+      {
+        "name": "Jack Patel",
+        "email": "jack.patel.olympic-village@example.test",
+        "phone": "+1-604-555-2152",
+        "visits": 4,
+        "spend": 9250,
+        "points": 92,
+        "marketing": false,
+        "daysAgo": 4
+      },
+      {
+        "name": "Mia Cooper",
+        "email": "mia.cooper.olympic-village@example.test",
+        "phone": "+1-604-555-2153",
+        "visits": 8,
+        "spend": 25400,
+        "points": 254,
+        "marketing": true,
+        "daysAgo": 7
+      }
+    ],
+    "orders": [
+      {
+        "number": "PBL-460",
+        "guest": "zoe.campbell.olympic-village@example.test",
+        "status": "new",
+        "type": "pickup",
+        "table": null,
+        "minutes": 11,
+        "items": [
+          [
+            "Wild Salmon Poke Bowl",
+            2
+          ],
+          [
+            "Crispy Tofu Greens Bowl",
+            1
+          ]
+        ]
+      },
+      {
+        "number": "PBL-461",
+        "guest": "jack.patel.olympic-village@example.test",
+        "status": "preparing",
+        "type": "pickup",
+        "table": null,
+        "minutes": 20,
+        "items": [
+          [
+            "Chicken Rice Bowl",
+            1
+          ]
+        ]
+      },
+      {
+        "number": "PBL-462",
+        "guest": "mia.cooper.olympic-village@example.test",
+        "status": "completed",
+        "type": "dine_in",
+        "table": "Community Bar 1",
+        "minutes": 145,
+        "items": [
+          [
+            "Miso Egg",
+            1
+          ]
+        ]
+      }
+    ],
+    "reservations": [],
+    "campaign": {
+      "name": "[DEMO] Olympic Village guest return campaign",
+      "channel": "email",
+      "subject": "A note from your neighbourhood restaurant",
+      "body": "Synthetic draft for opted-in sample guests only. Not sent."
+    }
+  },
+  {
+    "slug": "demo-hearthstone-marpole",
+    "name": "Hearthstone Family Grill",
+    "ownerName": "Casey Bennett",
+    "ownerEmail": "owner@hearthstone-marpole.demo.test",
+    "description": "A family-run Marpole grill serving comfort food, kid-friendly choices and relaxed weekend dining.",
+    "phone": "+1-604-555-3106",
+    "address": "Marpole · Vancouver (demo)",
+    "city": "Vancouver",
+    "province": "BC",
+    "brandColor": "#825A3F",
+    "taxRate": 0.12,
+    "acceptingOrders": true,
+    "acceptingReservations": true,
+    "businessType": "Family neighbourhood grill",
+    "area": "Marpole",
+    "focus": "Family dining · takeout · weekend bookings",
+    "agentObjective": "Owner agent: Family dining · takeout · weekend bookings. Guest agent: place an unpaid sample order. Shift-manager agent: process kitchen and booking workflow; verify tenant isolation.",
+    "categories": [
+      {
+        "name": "From the Grill",
+        "items": [
+          {
+            "name": "Herb Roast Chicken",
+            "description": "Half chicken, pan jus and seasonal vegetables.",
+            "price": 24
+          },
+          {
+            "name": "Hearthstone Burger",
+            "description": "Smash patty, cheddar, pickles and fries.",
+            "price": 21
+          },
+          {
+            "name": "Grilled Steelhead",
+            "description": "Lemon butter, rice and greens.",
+            "price": 25.5
+          }
+        ]
+      },
+      {
+        "name": "Family Sides",
+        "items": [
+          {
+            "name": "Crispy Fries",
+            "description": "Sea salt and house seasoning.",
+            "price": 7
+          },
+          {
+            "name": "Apple Crumble",
+            "description": "Warm apples, oat crumble and vanilla cream.",
+            "price": 9.5
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "label": "Family Booth 1",
+        "capacity": 4
+      },
+      {
+        "label": "Family Booth 2",
+        "capacity": 6
+      },
+      {
+        "label": "Patio Table",
+        "capacity": 2
+      }
+    ],
+    "guests": [
+      {
+        "name": "Ella Brooks",
+        "email": "ella.brooks.marpole@example.test",
+        "phone": "+1-604-555-2161",
+        "visits": 4,
+        "spend": 15840,
+        "points": 158,
+        "marketing": true,
+        "daysAgo": 1
+      },
+      {
+        "name": "Owen Murphy",
+        "email": "owen.murphy.marpole@example.test",
+        "phone": "+1-604-555-2162",
+        "visits": 2,
+        "spend": 9750,
+        "points": 97,
+        "marketing": false,
+        "daysAgo": 4
+      },
+      {
+        "name": "Lily Nguyen",
+        "email": "lily.nguyen.marpole@example.test",
+        "phone": "+1-604-555-2163",
+        "visits": 6,
+        "spend": 25900,
+        "points": 259,
+        "marketing": true,
+        "daysAgo": 7
+      }
+    ],
+    "orders": [
+      {
+        "number": "HFG-470",
+        "guest": "ella.brooks.marpole@example.test",
+        "status": "new",
+        "type": "dine_in",
+        "table": "Family Booth 1",
+        "minutes": 12,
+        "items": [
+          [
+            "Herb Roast Chicken",
+            2
+          ],
+          [
+            "Hearthstone Burger",
+            1
+          ]
+        ]
+      },
+      {
+        "number": "HFG-471",
+        "guest": "owen.murphy.marpole@example.test",
+        "status": "preparing",
+        "type": "pickup",
+        "table": null,
+        "minutes": 21,
+        "items": [
+          [
+            "Grilled Steelhead",
+            1
+          ]
+        ]
+      },
+      {
+        "number": "HFG-472",
+        "guest": "lily.nguyen.marpole@example.test",
+        "status": "completed",
+        "type": "dine_in",
+        "table": "Family Booth 1",
+        "minutes": 150,
+        "items": [
+          [
+            "Crispy Fries",
+            1
+          ]
+        ]
+      }
+    ],
+    "reservations": [
+      {
+        "key": "booking-6-1",
+        "guest": "ella.brooks.marpole@example.test",
+        "party": 2,
+        "days": 4,
+        "hour": 1,
+        "status": "requested",
+        "notes": "Synthetic guest booking; window seating preferred."
+      },
+      {
+        "key": "booking-6-2",
+        "guest": "lily.nguyen.marpole@example.test",
+        "party": 4,
+        "days": 6,
+        "hour": 2,
+        "status": "confirmed",
+        "notes": "Synthetic confirmed table booking."
+      }
+    ],
+    "campaign": {
+      "name": "[DEMO] Marpole guest return campaign",
+      "channel": "email",
+      "subject": "A note from your neighbourhood restaurant",
+      "body": "Synthetic draft for opted-in sample guests only. Not sent."
+    }
+  }
+]

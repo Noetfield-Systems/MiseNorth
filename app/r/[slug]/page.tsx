@@ -1,0 +1,2 @@
+import Store from "./store";
+export default async function RestaurantPage({params,searchParams}:{params:Promise<{slug:string}>;searchParams:Promise<{table?:string}>}){const p=await params,q=await searchParams;return <Store slug={p.slug} table={q.table||""}/>;}
