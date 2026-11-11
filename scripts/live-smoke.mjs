@@ -1,6 +1,6 @@
 /** Production HTTP smoke for the public MiseNorth acquisition and guest surfaces. */
 const base=(process.env.BASE_URL||"https://misenorth-growth-production.up.railway.app").replace(/\/$/,"");
-const paths=["/","/grader","/pricing","/demo","/partners","/investors","/operator","/api/public/launch-status","/signup","/api/health","/robots.txt","/sitemap.xml"];
+const paths=["/","/grader","/pricing","/demo","/partners","/investors","/restaurants/vancouver","/operator","/api/public/launch-status","/signup","/api/health","/robots.txt","/sitemap.xml"];
 let failed=0;
 for(const path of paths){
  let response,reason="";
@@ -19,6 +19,9 @@ for(const path of paths){
   catch(error){failed++;console.error("FAIL health",error);continue;}
  }else if(path==="/"&&!text.includes("They found")){failed++;console.error("FAIL landing headline missing");continue;}
  else if(path==="/grader"&&!text.includes("restaurant website")){failed++;console.error("FAIL grader copy missing");continue;}
+ else if(path==="/pricing"&&!text.includes("FOUNDING RESTAURANT")){failed++;console.error("FAIL pricing offer missing");continue;}
+ else if(path==="/demo"&&!text.includes("REAL WORKFLOWS")){failed++;console.error("FAIL curated product demo missing");continue;}
+ else if(path==="/restaurants/vancouver"&&!text.includes("VANCOUVER RESTAURANT OWNERS")){failed++;console.error("FAIL local acquisition page missing");continue;}
  console.log("PASS",path,response.status,text.length,"bytes");
 }
 if(failed)process.exitCode=1;
