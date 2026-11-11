@@ -10,6 +10,8 @@ async function call(path,method="GET",body,cookie){
 }
 const noAccess=await call("/api/operator/inquiries");
 assert.equal(noAccess.status,401);
+const unauthorizedEmail=await call("/api/operator/email-test","POST");
+assert.equal(unauthorizedEmail.status,401,"email diagnostic must require an authenticated operator");
 const login=await call("/api/operator/session","POST",{password:process.env.MISENORTH_TEST_OPERATOR_KEY});
 assert.equal(login.status,200);
 assert.ok(login.cookie?.startsWith("misenorth_operator="));

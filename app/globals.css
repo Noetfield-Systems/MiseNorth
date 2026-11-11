@@ -734,3 +734,8 @@
 .mn-site .mn-sales-form .growth-inquiry-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .mn-site .mn-final-form .growth-inquiry-success{background:#fff;color:#254b35}
 @media(max-width:490px){.mn-site .mn-sales-form .growth-inquiry-fields{grid-template-columns:1fr}}
+
+/* Operator mail connectivity diagnostic */
+.operator-header-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.operator-email-result{background:#edf4e7;border:1px solid #d2e4ce;border-radius:10px;padding:13px 17px;color:#2d5636;font-size:12px;line-height:1.65}
+@media(max-width:680px){.operator-header-actions{justify-content:flex-end}.operator-header-actions .btn{font-size:11px}}

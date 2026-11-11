@@ -9,6 +9,7 @@ export default function OperatorConsole(){
  const [key,setKey]=useState(""),[items,setItems]=useState<Item[]>([]);
  const [counts,setCounts]=useState<Counts|null>(null),[error,setError]=useState(""),[busy,setBusy]=useState(false),[page,setPage]=useState(0);
  const [edits,setEdits]=useState<Record<string,{status:string;note:string}>>({});
+ const [emailResult,setEmailResult]=useState("");
  const load=useCallback(async(n:number)=>{
   const res=await fetch("/api/operator/inquiries?page="+n,{cache:"no-store"});
   if(res.status===401){setAuth("locked");return;}
@@ -22,6 +23,16 @@ export default function OperatorConsole(){
   catch(e){setError(e instanceof Error?e.message:"Login failed");}finally{setBusy(false);}
  }
  async function logout(){await fetch("/api/operator/session",{method:"DELETE"});setAuth("locked");setItems([]);}
+ async function testEmail(){
+  setBusy(true);setEmailResult("");
+  try{
+   const response=await fetch("/api/operator/email-test",{method:"POST"});
+   const data=await response.json();
+   if(!response.ok||!data.providerAccepted)throw new Error(data.error||"Provider did not accept the email.");
+   setEmailResult("Resend accepted the diagnostic for "+data.recipient+". Confirm arrival in your inbox; provider acceptance is not proof of delivery.");
+  }catch(e){setEmailResult(e instanceof Error?e.message:"Email test could not be completed.");}
+  finally{setBusy(false);}
+ }
  async function save(i:Item){setBusy(true);setError("");
   try{const e=edits[i.id]||{status:i.status,note:i.operator_note||""};const r=await fetch("/api/operator/inquiries/"+i.id,{method:"PATCH",headers:{"content-type":"application/json"},body:JSON.stringify(e)});const d=await r.json();if(!r.ok)throw new Error(d.error||"Update failed");await load(page);}
   catch(e){setError(e instanceof Error?e.message:"Update failed");}finally{setBusy(false);}
@@ -32,7 +43,8 @@ export default function OperatorConsole(){
  }
  return <main className="operator-shell"><header className="operator-header"><Link href="/" className="brand"><span className="brand-mark">M</span>MiseNorth</Link><span>Private growth operations</span>{auth==="ready"?<button className="btn ghost small" onClick={logout}>Sign out</button>:<Link href="/" className="btn ghost small">Home</Link>}</header>
  {auth==="loading"?<p className="operator-loading">Checking session…</p>:auth==="locked"?<section className="operator-login"><div className="eyebrow">PRIVATE · OPERATOR ONLY</div><h1>Lead inbox</h1><p>Use the operator access key. Contact data is never exposed without authentication.</p><form onSubmit={login}><label>Access key<input type="password" required autoComplete="off" value={key} onChange={e=>setKey(e.target.value)}/></label>{error&&<p className="error" role="alert">{error}</p>}<button disabled={busy} className="btn full">{busy?"Verifying…":"Open inbox"}</button></form></section>:
- <section className="operator-main"><div className="operator-head"><div><div className="eyebrow">MISE NORTH / SALES OPERATIONS</div><h1>Inbound opportunities</h1><p>Submitted requests only. Synthetic restaurant demos are not customers.</p></div><button className="btn secondary" onClick={()=>load(page).catch(()=>setError("Refresh failed"))}>Refresh</button></div>
+ <section className="operator-main"><div className="operator-head"><div><div className="eyebrow">MISE NORTH / SALES OPERATIONS</div><h1>Inbound opportunities</h1><p>Submitted requests only. Synthetic restaurant demos are not customers.</p></div><div className="operator-header-actions"><button className="btn ghost" disabled={busy} onClick={testEmail}>Test email delivery</button><button className="btn secondary" onClick={()=>load(page).catch(()=>setError("Refresh failed"))}>Refresh</button></div></div>
+ {emailResult&&<p role="status" className="operator-email-result">{emailResult}</p>}
  {counts&&<div className="operator-counts">{([["Total",counts.total],["New",counts.new_count],["Restaurants",counts.restaurants],["Partners",counts.partners],["Investors",counts.investors]] as const).map(([label,n])=><div key={label}><small>{label}</small><strong>{n}</strong></div>)}</div>}
  {error&&<p className="error" role="alert">{error}</p>}
  <div className="operator-list">{items.length===0?<div className="operator-empty">No inquiries on this page. Share the Grader to attract restaurant prospects.</div>:items.map(i=><article className="operator-item" key={i.id}>
