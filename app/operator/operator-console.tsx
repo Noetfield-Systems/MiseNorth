@@ -47,7 +47,7 @@ function Icon({name,size=18}:{name:string;size?:number}){return <svg aria-hidden
 function dateTime(value:string|null|undefined){if(!value)return "Not set";const d=new Date(value);return Number.isNaN(d.getTime())?"Unknown":d.toLocaleString("en-CA",{month:"short",day:"numeric",year:"numeric",hour:"numeric",minute:"2-digit"});}
 function localInput(value:string|null|undefined){if(!value)return "";const d=new Date(value);if(Number.isNaN(d.getTime()))return "";const local=new Date(d.getTime()-d.getTimezoneOffset()*60000);return local.toISOString().slice(0,16);}
 function initials(s:string){return (s.trim().split(/\s+/).map(w=>w[0]).slice(0,2).join("")||"MN").toUpperCase();}
-function tone(status:string){return ["won","connected","online","configured"].includes(status)?"positive":["lost","overdue","unavailable"].includes(status)?"negative":"neutral";}
+function tone(status:string):"positive"|"negative"|"neutral"{return ["won","connected","online","configured"].includes(status)?"positive":["lost","overdue","unavailable"].includes(status)?"negative":"neutral";}
 function Badge({children,variant="neutral"}:{children:React.ReactNode;variant?:"positive"|"negative"|"neutral"|"warning"}){return <span className={"gc-badge gc-"+variant}>{children}</span>;}
 function Card({label,value,hint,accent}:{label:string;value:string|number;hint:string;accent?:boolean}){return <div className={"gc-kpi"+(accent?" gc-kpi-accent":"")}><span>{label}</span><strong>{value}</strong><small>{hint}</small></div>;}
 
