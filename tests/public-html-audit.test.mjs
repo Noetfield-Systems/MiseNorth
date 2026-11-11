@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import {isPublicAddress,buildHtmlReport} from "../lib/public-html-audit.mjs";
+import {isPublicAddress,buildHtmlReport,MAX_HTML_AUDIT_BYTES} from "../lib/public-html-audit.mjs";
 
 test("denies localhost, RFC1918, link local, internal IPv6 and documentation addresses",()=>{
  for(const ip of ["127.0.0.1","10.1.2.3","192.168.0.1","172.16.0.1","169.254.169.254","100.100.100.100","192.0.2.1","203.0.113.9","::1","fc00::1","fe80::1","2001:db8::1"]){
@@ -24,4 +24,9 @@ test("noindex and insecure transport surface as specific findings",()=>{
  const r=buildHtmlReport("http://example.com/","http://example.com/",html);
  assert.ok(r.findings.some(x=>x.id==="secure-transport"));
  assert.ok(r.findings.some(x=>x.id==="indexable"));
+});
+
+test("real-site HTML inspection remains strictly bounded even after increasing the limit",()=>{
+ assert.equal(MAX_HTML_AUDIT_BYTES,2*1024*1024);
+ assert.ok(MAX_HTML_AUDIT_BYTES<3*1024*1024);
 });
