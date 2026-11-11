@@ -1,6 +1,6 @@
 /** Production HTTP smoke for the public MiseNorth acquisition and guest surfaces. */
 const base=(process.env.BASE_URL||"https://misenorth-growth-production.up.railway.app").replace(/\/$/,"");
-const paths=["/","/grader","/pricing","/demo","/partners","/investors","/api/health","/robots.txt","/sitemap.xml"];
+const paths=["/","/grader","/pricing","/demo","/partners","/investors","/operator","/api/public/launch-status","/signup","/api/health","/robots.txt","/sitemap.xml"];
 let failed=0;
 for(const path of paths){
  let response,reason="";
@@ -43,3 +43,8 @@ try{
  else if([422,429,503].includes(response.status)&&body.error)console.log("GRADER PROVIDER NOT AVAILABLE",response.status,body.code||body.error);
  else {console.error("GRADER unexpected response",response.status,JSON.stringify(body).slice(0,250));process.exitCode=1;}
 }catch(error){console.warn("GRADER probe interrupted; check provider and network",String(error?.message||error));}
+
+// Operator data must never be publicly readable.
+const privateProbe=await fetch(base+"/api/operator/inquiries",{signal:AbortSignal.timeout(15000)});
+if(privateProbe.status!==401){console.error("FAIL operator inquiry data unexpectedly public",privateProbe.status);process.exitCode=1;}
+else console.log("PASS operator access boundary (401)");
