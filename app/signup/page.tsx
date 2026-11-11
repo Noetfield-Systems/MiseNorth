@@ -1,9 +1,12 @@
 "use client";
 import Link from "next/link";
-import {useState} from "react";
+import {useEffect,useState} from "react";
+import InquiryForm from "../components/inquiry-form";
 import type {FormEvent} from "react";
 
 export default function Signup(){
+ const [registrationReady,setRegistrationReady]=useState<boolean|null>(null);
+ useEffect(()=>{fetch("/api/public/launch-status",{cache:"no-store"}).then(r=>r.json()).then(v=>setRegistrationReady(Boolean(v.registration?.enabled))).catch(()=>setRegistrationReady(false));},[]);
  const [f,setF]=useState({ownerName:"",email:"",password:"",restaurantName:"",phone:"",address:""});
  const [error,setError]=useState("");
  const [notice,setNotice]=useState("");
@@ -36,6 +39,8 @@ export default function Signup(){
   }catch(x){setError(x instanceof Error?x.message:"Unable to request a new verification email");}
   finally{setBusy(false);}
  }
+ if(registrationReady===null)return <main className="auth-main"><p className="notice">Checking registration availability…</p></main>;
+ if(!registrationReady)return <main className="auth-shell"><aside className="auth-aside"><Link href="/" className="brand"><span className="brand-mark">M</span>MiseNorth</Link><div><div className="eyebrow">Founding restaurant access</div><h1>Start with your restaurant, not paperwork.</h1><p>We are activating verified email onboarding. Submit a setup request now, without creating an inaccessible account.</p></div><small>MiseNorth · A Noetfield Systems Inc. product</small></aside><section className="auth-main"><div className="auth-card" style={{maxWidth:490,width:"100%"}}><InquiryForm intent="restaurant" headline="Request restaurant access"/><p className="tiny muted" style={{marginTop:12}}><Link href="/demo" className="text-link">Explore the working demo ↗</Link></p></div></section></main>;
  return <main className="auth-shell">
   <aside className="auth-aside"><Link href="/" className="brand"><span className="brand-mark">M</span>MiseNorth</Link><div><div className="eyebrow">Your restaurant, connected</div><h1>Build your<br/>digital home.<br/>Keep every<br/>guest in view.</h1><p>Create a private restaurant workspace. Your real menu, guests and orders belong to your business—no sample data is inserted.</p></div><small>Made for Vancouver hospitality businesses.</small></aside>
   <section className="auth-main"><form className="auth-card" onSubmit={submit}>
