@@ -48,10 +48,10 @@ export async function GET(req:Request){
    query<any>(
     `SELECT count(*) FILTER (WHERE subscription_status='active' AND entitlement_status='active'
        AND latest_invoice_status='paid' AND current_period_end>now()
-       AND currency='CAD' AND billing_interval='month')::int AS active_paid_locations,
+       AND a.currency='CAD' AND billing_interval='month')::int AS active_paid_locations,
       COALESCE(sum(unit_amount_cents*quantity) FILTER (WHERE subscription_status='active' AND entitlement_status='active'
        AND latest_invoice_status='paid' AND current_period_end>now()
-       AND currency='CAD' AND billing_interval='month'),0)::bigint AS mrr_cents
+       AND a.currency='CAD' AND billing_interval='month'),0)::bigint AS mrr_cents
      FROM misenorth_billing_accounts a JOIN restaurants r ON r.id=a.restaurant_id AND r.is_demo=false`,
     []
    ),
