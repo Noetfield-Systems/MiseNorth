@@ -5,7 +5,7 @@ import {writeFileSync} from "node:fs";
 const base=(process.env.BASE_URL||"https://misenorth-growth-production.up.railway.app").replace(/\/$/,"");
 const cases=[
  {name:"Nuba",url:"https://www.nuba.ca/",model:"multilocation/hospitality",source:"https://www.nuba.ca/"},
- {name:"Tacofino",url:"https://www.tacofino.com/locations",model:"multiunit/fast_casual",source:"https://www.tacofino.com/locations"},
+ {name:"Tacofino",url:"https://www.tacofino.com/",model:"multiunit/fast_casual",source:"https://www.tacofino.com/locations"},
  {name:"Vij's",url:"https://www.vijs.ca/",model:"single_location/full_service",source:"https://www.vijs.ca/"}
 ];
 const result={timestamp:new Date().toISOString(),auditSource:"MiseNorth public website grader",
