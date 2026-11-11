@@ -705,3 +705,24 @@
 .mn-site .growth-concept-banner{background:linear-gradient(130deg,#123728,#234e37)}
 .mn-site .growth-concept-browser{border-color:#d7e2d1}
 @media(max-width:720px){.mn-site .mn-report-next{display:grid;gap:15px}.mn-site .mn-report-next .mn-button{width:100%}}
+
+
+.mn-site .mn-local-hero{background:#f7f8f1;padding:83px 0 100px}
+.mn-site .mn-local-hero-grid{display:grid;grid-template-columns:1fr .9fr;gap:70px;align-items:center}
+.mn-site .mn-local-hero h1{font:850 clamp(43px,4.9vw,70px)/1.1 var(--mn-display);letter-spacing:-3px;margin:20px 0}
+.mn-site .mn-local-hero h1 em,.mn-site .mn-local-info h2 em{font:italic 400 1em Georgia,serif;color:#bc5d3e}
+.mn-site .mn-local-hero-grid>div:first-child>p{color:#657968;font-size:15px;line-height:1.8;max-width:560px;margin-bottom:27px}
+.mn-site .mn-local-audit{margin:25px 0 18px;max-width:545px}
+.mn-site .mn-local-image{position:relative;height:500px;border-radius:160px 15px 15px 160px;overflow:hidden;background:#ad8865}
+.mn-site .mn-local-image>img{width:100%;height:100%;object-fit:cover}
+.mn-site .mn-local-image:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent,#132b20a8)}
+.mn-site .mn-local-image>div{position:absolute;z-index:2;bottom:30px;left:30px;right:30px;color:#fff;font-size:10px;line-height:1.6;letter-spacing:1.8px;font-weight:800}
+.mn-site .mn-local-info{background:#e8f0e3;padding:90px 0}
+.mn-site .mn-local-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:75px;align-items:center}
+.mn-site .mn-local-info h2{font:850 clamp(32px,3.6vw,54px)/1.15 var(--mn-display);letter-spacing:-2px;margin:17px 0}
+.mn-site .mn-local-info p{color:#657967;line-height:1.8;font-size:14px}
+.mn-site .mn-local-steps{display:grid;border-top:1px solid #bacfb6}
+.mn-site .mn-local-steps>div{padding:21px 0;display:flex;align-items:center;gap:20px;border-bottom:1px solid #bacfb6;font-size:13px;color:#34563e;font-weight:800}
+.mn-site .mn-local-steps b{color:#b45a3c}
+@media(max-width:850px){.mn-site .mn-local-hero-grid,.mn-site .mn-local-info-grid{grid-template-columns:1fr;gap:35px}.mn-site .mn-local-image{height:340px}}
+@media(max-width:550px){.mn-site .mn-local-hero{padding:65px 0}.mn-site .mn-local-hero h1{font-size:42px;letter-spacing:-2px}.mn-site .mn-local-image{height:265px;border-radius:85px 12px 12px 85px}.mn-site .mn-local-info{padding:65px 0}}
